@@ -1,4 +1,5 @@
 BACKEND
+
 Run a virtual environment first venv then install everything in the requirements for backend.
 First time only:
 
@@ -15,6 +16,7 @@ source venv/Scripts/activate
 python -m uvicorn main:app --reload
 
 FRONTEND
+
 Needs to setup nodejs and npm
 
 npm install
