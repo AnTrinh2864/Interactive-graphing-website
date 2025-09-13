@@ -18,7 +18,7 @@ const GraphPlot: React.FC = () => {
   const [highlightedPointIndices, setHighlightedPointIndices] = useState<number[]>([]);
   const [hiddenEquationIds, setHiddenEquationIds] = useState<string[]>([]);
   const [hiddenPointIndices, setHiddenPointIndices] = useState<number[]>([]);
-  const [hoveredPointScreenPos, setHoveredPointScreenPos] = useState<{ x: number; y: number } | null>(null);
+  const [, setHoveredPointScreenPos] = useState<{ x: number; y: number } | null>(null);
   const [selectedPoints, setSelectedPoints] = useState<Point[]>([]);
   // drawing mode states
   const [allowLine, setAllowLine] = useState(false);

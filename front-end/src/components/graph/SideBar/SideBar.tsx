@@ -80,7 +80,7 @@ const RightSidebar: React.FC<RightSidebarProps> = (props) => {
       style={{
         width: "370px",
         marginLeft: "20px",
-        borderLeft: "1px solid #ccc",
+        borderLeft: "1px solid cadetblue",
         paddingLeft: "10px",
         height: "690px",
         overflowY: "auto",

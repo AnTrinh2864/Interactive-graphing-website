@@ -9,25 +9,22 @@ const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({ title, children
   const [open, setOpen] = useState(false);
 
   return (
-    <div style={{ marginBottom: "10px" }}>
+    <div id="collapsible-section">
       <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          cursor: "pointer",
-          fontWeight: 600,
-          borderBottom: "1px solid #ccc",
-          padding: "6px 0",
-        }}
+        id="collapsible-header"
         onClick={() => setOpen(!open)}
       >
-        <span>{title}</span>
-        <span style={{ transform: open ? "rotate(90deg)" : "rotate(0deg)", transition: "0.2s" }}>
+        <span id="collapsible-title">{title}</span>
+        <span
+          id="collapsible-arrow"
+          style={{
+            transform: open ? "rotate(90deg)" : "rotate(0deg)",
+          }}
+        >
           ▶
         </span>
       </div>
-      {open && <div style={{ marginTop: "6px" }}>{children}</div>}
+      {open && <div id="collapsible-content">{children}</div>}
     </div>
   );
 };

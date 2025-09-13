@@ -21,9 +21,9 @@ const DrawingOptions: React.FC<DrawingOptionsProps> = ({
   setSelectedPoints,
 }) => {
   return (
-    <div style={{ marginBottom: "15px" }}>
+    <div id="drawing-options">
       {/* Line */}
-      <label style={{ display: "block", marginBottom: "5px" }}>
+      <label>
         <input
           type="checkbox"
           checked={allowLine}
@@ -37,12 +37,12 @@ const DrawingOptions: React.FC<DrawingOptionsProps> = ({
               setAllowCircle(false);
             }
           }}
-        />{" "}
+        />
         Enable Line Drawing
       </label>
 
       {/* Curve */}
-      <label style={{ display: "block", marginBottom: "5px" }}>
+      <label>
         <input
           type="checkbox"
           checked={allowCurve}
@@ -56,12 +56,12 @@ const DrawingOptions: React.FC<DrawingOptionsProps> = ({
               setAllowCircle(false);
             }
           }}
-        />{" "}
+        />
         Enable Curve Drawing (ax² + bx + c)
       </label>
 
       {/* Circle */}
-      <label style={{ display: "block" }}>
+      <label>
         <input
           type="checkbox"
           checked={allowCircle}
@@ -75,7 +75,7 @@ const DrawingOptions: React.FC<DrawingOptionsProps> = ({
               setAllowCurve(false);
             }
           }}
-        />{" "}
+        />
         Enable Circle Drawing
       </label>
     </div>
