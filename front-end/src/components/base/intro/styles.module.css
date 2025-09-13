@@ -1,0 +1,14 @@
+.background-container {
+  width: 200%;
+  height: 100%;
+  background-color: rgb(67, 249, 234);
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 50vw;
+  margin: 0 auto;
+}
