@@ -80,7 +80,7 @@ const DomainForm: React.FC<DomainFormProps> = ({
           />
         </div>
       </form>
-      <Button color= {"secondary"}size= {"lg"} showTextWhileLoading= {true} isLoading={isLoading} onClick={handleFindIntersections}>Find Intersections</Button>
+      <Button color= {"secondary"} size= {"lg"} showTextWhileLoading= {true} isLoading={isLoading} onClick={handleFindIntersections}>Find Intersections</Button>
       <Button color = {"secondary-destructive"} size= {"lg"} onClick={handleClearIntersections}>
           Clear Intersections
       </Button>
