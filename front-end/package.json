@@ -1,0 +1,48 @@
+{
+  "name": "front-end-new",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "@untitledui/icons": "^0.0.19",
+    "axios": "^1.11.0",
+    "plotly": "^1.0.6",
+    "plotly.js": "^3.1.0",
+    "plotly.js-dist-min": "^3.1.0",
+    "react": "^19.1.1",
+    "react-aria-components": "^1.12.2",
+    "react-dom": "^19.1.1",
+    "react-icons": "^5.5.0",
+    "react-plotly.js": "^2.6.0",
+    "react-router-dom": "^7.9.1",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.13",
+    "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-react-aria-components": "^2.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@types/geojson": "^7946.0.16",
+    "@types/node": "^24.3.3",
+    "@types/plotly.js": "^3.0.3",
+    "@types/plotly.js-dist-min": "^2.3.4",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@types/react-plotly.js": "^2.6.3",
+    "@vitejs/plugin-react": "^5.0.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.39.1",
+    "vite": "^7.1.2"
+  }
+}
