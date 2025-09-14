@@ -1,0 +1,30 @@
+#equation-input-container {
+  margin-bottom: 10px;
+}
+
+#equation-input {
+  margin-right: 10px;
+  padding: 4px 8px;
+  border: 2px solid cadetblue;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: var(--matcha-light);
+  color: var(--gray-dark);
+  font-weight: 600;
+  outline: none;
+}
+
+#equation-input-button {
+  background-color: var(--mint-dark);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+#equation-input-button:hover {
+  background-color: teal;
+}

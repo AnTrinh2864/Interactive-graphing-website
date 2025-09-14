@@ -6,9 +6,24 @@
 @import "./drawing-options.css";
 @import "./point-list.css";
 @import "./equation-list.css";
+@import "./cursorTooltip.css";
+@import "./equation-input.css";
+@import "./manual-point-input.css";
+@import "./graph-plot.css";
 
-.side-bar {
-  flex-shrink: 0;   /* prevent sidebar from being squashed */
-  width: 400px;     /* fixed or min-width */
+#side-bar {
+  width: 33%;
+  padding-left: 10px;
+  height: 90%;
+  padding-top: 5px;
+  margin-right: 2%;
 }
+#border-line {
+  width: 4px;                 /* thickness of the line */
+  border-radius: 2px;
+  margin-top: 2%;
+  margin-bottom: 2%;
 
+  /* gradient background instead of border */
+  background: linear-gradient(to bottom, var(--mint), var(--lavender));
+}

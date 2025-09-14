@@ -1,0 +1,34 @@
+#manual-point-container {
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+#input-x,
+#input-y {
+  margin-right: 5px;
+  width: 60px;
+  padding: 5px 8px;
+  border: 2px solid var(--mint-dark);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: var(--matcha-light);
+  color: var(--gray-dark);
+}
+
+#add-point-btn {
+  padding: 5px 10px;
+  border: none;
+  background-color: var(--mint-dark);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+#add-point-btn:hover {
+  background-color: var(--teal);
+}
+
+#add-point-btn:active {
+  transform: scale(0.95);
+}

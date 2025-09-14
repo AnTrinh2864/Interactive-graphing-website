@@ -15,19 +15,19 @@ body {
 
 /* --- Default styles --- */
 :root {
-  --matcha-light: #c3ebd8;
+  --matcha-light: #dcfce7;
   --mint-light: #A7F3D0;
-  --mint: #94F0D0;
-  --mint-dark: #3DB8A2;
+  --mint: #93e1d8;
+  --mint-dark: #2a9d8f;
   --teal: #2c786c;
-  --coral: #f14f4f;
-  --lavender: #C7B9FF;
+  --coral: #f1bf77;
+  --lavender: #ffa69e;
   --peach: #FFD6A5;
   --navy: #1E3A5F;
   --gray-light: #F3F4F6;
   --gray: #9CA3AF;
-  --gray-dark: #374151;
-  --lavender-dark: #714bcb;
+  --gray-dark: #2c786c;
+  --lavender-dark: #aa4465;
   color-scheme: light dark;
   color: rgba(49, 90, 84, 0.87);
   background-color: var(--mint-light);

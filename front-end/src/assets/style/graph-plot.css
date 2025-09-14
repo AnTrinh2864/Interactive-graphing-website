@@ -1,0 +1,41 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* disable scrollbars entirely */
+}
+
+#graph-root {
+  display: flex;
+  position: fixed; /* lock to viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* no overflow inside either */
+}
+
+/* Left section: plot + inputs */
+#plot-section {
+  flex: 1; /* take all available width */
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+  min-width: 0; /* prevent flex overflow */
+  min-height: 0;
+}
+
+/* Plot fills remaining space */
+#plot-container {
+  flex: 1;
+  width: 99%;
+  height: 90%;
+  min-width: 0; 
+  min-height: 0; 
+  border: 5px solid;
+  border-image: linear-gradient(to bottom, var(--mint), var(--lavender)) 1;
+}

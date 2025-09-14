@@ -7,18 +7,10 @@ interface CursorTooltipProps {
 
 const CursorTooltip: React.FC<CursorTooltipProps> = ({ coords, mousePos }) => (
   <div
+    id="cursor-tooltip"
     style={{
-      position: "fixed",
       left: `${mousePos.x}px`,
       top: `${mousePos.y}px`,
-      transform: "translate(-50%, -100%)",
-      background: "rgba(0,0,0,0.7)",
-      color: "white",
-      padding: "4px 8px",
-      borderRadius: "4px",
-      fontSize: "12px",
-      zIndex: 999,
-      pointerEvents: "none",
     }}
   >
     {`x: ${coords.x.toFixed(2)}, y: ${coords.y.toFixed(2)}`}

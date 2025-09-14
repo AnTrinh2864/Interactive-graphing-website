@@ -11,15 +11,17 @@ const EquationInput: React.FC<EquationInputProps> = ({
   setEquation,
   plotEquation
 }) => (
-  <div style={{ marginBottom: "10px" }}>
+  <div id="equation-input-container">
     <input
+      id="equation-input"
       type="text"
       placeholder="Enter equation, e.g. 2*x + 3"
       value={equation}
       onChange={(e) => setEquation(e.target.value)}
-      style={{ marginRight: "10px" }}
     />
-    <button onClick={plotEquation}>Plot Equation</button>
+    <button id="equation-input-button" onClick={plotEquation}>
+      Plot Equation
+    </button>
   </div>
 );
 

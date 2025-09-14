@@ -1,5 +1,5 @@
 #domain-form-container {
-  background-color: var(--mint-light);
+  background-color: var(--matcha-light);
   color: var(--gray-dark);
   padding: 1.5rem;
   border-radius: 0.75rem;
@@ -16,6 +16,7 @@
   border-radius: 0.375rem;
   background-color: #ccf6e2;
   color: var(--teal);
+  outline: none;
 }
 
 /* Button group spacing */

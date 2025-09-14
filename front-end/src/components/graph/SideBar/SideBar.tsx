@@ -40,52 +40,41 @@ interface RightSidebarProps {
   isLoading: boolean;
 }
 
-const RightSidebar: React.FC<RightSidebarProps> = (props) => {
-  const {
-    equationData,
-    setEquationData,
-    highlightedEquationIds,
-    setHighlightedEquationIds,
-    hiddenEquationIds,
-    setHiddenEquationIds,
-    points,
-    setPoints,
-    highlightedPointIndices,
-    setHighlightedPointIndices,
-    hiddenPointIndices,
-    setHiddenPointIndices,
-    clearPoints,
-    allowLine,
-    setAllowLine,
-    allowCurve,
-    setAllowCurve,
-    allowCircle,
-    setAllowCircle,
-    setSelectedPoints,
-    handleFindIntersections,
-    handleClearIntersections,
-    IntersectionPoints,
-    setIntersectionPoints,
-    xMax,
-    xMin,
-    numPoints,
-    setXMax,
-    setXMin,
-    setNumPoints,
-    isLoading
-  } = props;
-
+const RightSidebar: React.FC<RightSidebarProps> = ({
+  equationData,
+  setEquationData,
+  highlightedEquationIds,
+  setHighlightedEquationIds,
+  hiddenEquationIds,
+  setHiddenEquationIds,
+  points,
+  setPoints,
+  highlightedPointIndices,
+  setHighlightedPointIndices,
+  hiddenPointIndices,
+  setHiddenPointIndices,
+  clearPoints,
+  allowLine,
+  setAllowLine,
+  allowCurve,
+  setAllowCurve,
+  allowCircle,
+  setAllowCircle,
+  setSelectedPoints,
+  handleFindIntersections,
+  handleClearIntersections,
+  IntersectionPoints,
+  setIntersectionPoints,
+  xMax,
+  xMin,
+  numPoints,
+  setXMax,
+  setXMin,
+  setNumPoints,
+  isLoading
+}) => {
   return (
-    <div
-      id = "side-bar"
-      style={{
-        width: "400px",
-        marginLeft: "20px",
-        borderLeft: "2px solid cadetblue",
-        paddingLeft: "10px",
-        height: "690px"
-      }}
-    >
+    <div id="side-bar">
       <CollapsibleSection title="Intersections">
         <IntersectionPointList
           points={IntersectionPoints}

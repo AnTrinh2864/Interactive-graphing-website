@@ -3,14 +3,16 @@ import type { Point } from "../type";
 import type { UsePlotlyProps } from "./types";
 
 export const useCursorTracking = (
-  plotRef: React.RefObject<HTMLDivElement|null>,
+  plotRef: React.RefObject<HTMLDivElement | null>,
   { points, setHoveredPoint, setHoveredPointScreenPos, setMousePos, setCursorCoords }: UsePlotlyProps
 ) => {
   useEffect(() => {
     const plotEl = plotRef.current;
     if (!plotEl) return;
 
-    const handleMouseMove = (e: MouseEvent) => {
+    let lastMouseEvent: MouseEvent | null = null;
+
+    const updateCursor = (e: MouseEvent) => {
       const layout = (plotEl as any)._fullLayout;
       const bb = plotEl.getBoundingClientRect();
 
@@ -42,18 +44,34 @@ export const useCursorTracking = (
       }
     };
 
+    const handleMouseMove = (e: MouseEvent) => {
+      lastMouseEvent = e;
+      updateCursor(e);
+    };
+
+    const handleScrollOrResize = () => {
+      if (lastMouseEvent) {
+        updateCursor(lastMouseEvent); // re-run with last known cursor
+      }
+    };
+
     const handleMouseLeave = () => {
       setHoveredPoint(null);
       setHoveredPointScreenPos(null);
       setCursorCoords(null);
+      lastMouseEvent = null;
     };
 
     plotEl.addEventListener("mousemove", handleMouseMove);
     plotEl.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("scroll", handleScrollOrResize, true);
+    window.addEventListener("resize", handleScrollOrResize);
 
     return () => {
       plotEl.removeEventListener("mousemove", handleMouseMove);
       plotEl.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("scroll", handleScrollOrResize, true);
+      window.removeEventListener("resize", handleScrollOrResize);
     };
   }, [points, setHoveredPoint, setHoveredPointScreenPos, setMousePos, setCursorCoords]);
 };

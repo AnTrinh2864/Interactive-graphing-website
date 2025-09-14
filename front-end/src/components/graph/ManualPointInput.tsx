@@ -23,22 +23,24 @@ const ManualPointInput: React.FC<ManualPointInputProps> = ({ addPoint }) => {
   };
 
   return (
-    <div style={{ marginTop: "10px" }}>
+    <div id="manual-point-container">
       <input
+        id="input-x"
         type="text"
         placeholder="X"
         value={x}
         onChange={(e) => setX(e.target.value)}
-        style={{ marginRight: "5px", width: "60px" }}
       />
       <input
+        id="input-y"
         type="text"
         placeholder="Y"
         value={y}
         onChange={(e) => setY(e.target.value)}
-        style={{ marginRight: "5px", width: "60px" }}
       />
-      <button onClick={handleAdd}>Add Point</button>
+      <button id="add-point-btn" onClick={handleAdd}>
+        Add Point
+      </button>
     </div>
   );
 };

@@ -103,9 +103,9 @@ const GraphPlot: React.FC = () => {
     setPoints((prev) => [...prev, { x, y }]);
 
   return (
-    <div style={{ display: "flex", position: "relative" }}>
+    <div id="graph-root">
       {/* Left: Plot */}
-      <div style={{ flex: 1, position: "relative" }}>
+      <div id="plot-section">
         <EquationInput
           equation={equation}
           setEquation={setEquation}
@@ -114,14 +114,14 @@ const GraphPlot: React.FC = () => {
 
         <ManualPointInput addPoint={addPoint} />
 
-        <div id= "plot-container" ref={plotRef} style={{ width: "800px", height: "600px", }} />
+        <div id="plot-container" ref={plotRef} />
 
         {/* Cursor tooltip */}
         {cursorCoords && !hoveredPoint && (
           <CursorTooltip coords={cursorCoords} mousePos={mousePos} />
         )}
       </div>
-
+      <div id="border-line"></div>
       {/* Right sidebar */}
       <RightSidebar
         equationData={equationData}
@@ -141,7 +141,7 @@ const GraphPlot: React.FC = () => {
         setAllowLine={setAllowLine}
         allowCurve={allowCurve}
         setAllowCurve={setAllowCurve}
-        allowCircle={allowCircle}         
+        allowCircle={allowCircle}
         setAllowCircle={setAllowCircle}
         setSelectedPoints={setSelectedPoints}
         handleClearIntersections={handleClearIntersections}

@@ -10,12 +10,12 @@
   width: 100%;                  
   cursor: pointer;
   font-weight: 600;
-  border-bottom: 1px solid var(--gray);
+  border-bottom: 2px solid var(--teal);
   padding: 0.5rem 0;
   transition: background-color 0.2s;
 }
 
-#collapsible-header:hover { background-color: var(--mint-light); color: var(--lavender); }
+#collapsible-header:hover { background-color: var(--mint-light); }
 #collapsible-title { font-size: 1rem; }
 #collapsible-arrow { display: inline-block; transition: transform 0.2s; color:var(--mint-dark); }
 #collapsible-content { margin-top: 0.5rem; padding-left: 0.5rem; color: var(--gray-dark); }
