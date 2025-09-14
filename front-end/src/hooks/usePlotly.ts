@@ -5,7 +5,7 @@ import { useDrawingMode } from "./useDrawingMode";
 import { usePointSelection } from "./usePointSelection";
 import { useCursorTracking } from "./useCursorTracking";
 import type { UsePlotlyProps } from "./types";
-import { useResize } from "@react-spring/web";
+import { useResize } from "./useResize";
 
 export const usePlotly = (props: UsePlotlyProps) => {
   const plotRef = useRef<HTMLDivElement>(null);
