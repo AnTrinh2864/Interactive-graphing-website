@@ -15,8 +15,8 @@ export function buildEquationTraces(
       color: hiddenEquationIds.includes(eq.id)
         ? "lightgray"
         : highlightedEquationIds.includes(eq.id)
-        ? "orange"
-        : "blue",
+        ? "#C7B9FF"
+        : "#94F0D0",
       width: highlightedEquationIds.includes(eq.id)
         ? 3
         : hiddenEquationIds.includes(eq.id)
@@ -42,12 +42,12 @@ export function buildPointTrace(
     marker: {
       color: points.map((p, i) =>
         selectedPoints.includes(p)
-          ? "darkgreen"
+          ? "#C7B9FF"
           : hiddenPointIndices.includes(i)
           ? "lightgray"
           : highlightedPointIndices.includes(i)
-          ? "salmon"
-          : "darkblue"
+          ? "#ea5656ff"
+          : "#3DB8A2"
       ),
       size: points.map((p, i) => {
         const isHovered =

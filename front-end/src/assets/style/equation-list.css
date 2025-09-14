@@ -8,7 +8,7 @@
 .equation-name { flex: 1; }
 
 /* Highlighted equation */
-.equation-item.highlighted .equation-name { font-weight: bold; }
+.equation-item.highlighted .equation-name { font-weight: bold; color: var(--lavender-dark); }
 /* Hidden equation */
 .equation-item.hidden .equation-name { text-decoration: line-through; opacity: 0.6; }
 

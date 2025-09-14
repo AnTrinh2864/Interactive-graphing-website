@@ -15,11 +15,12 @@ body {
 
 /* --- Default styles --- */
 :root {
+  --matcha-light: #c3ebd8;
   --mint-light: #A7F3D0;
   --mint: #94F0D0;
   --mint-dark: #3DB8A2;
-  --teal: #2C786C;
-  --coral: #FF9F9F;
+  --teal: #2c786c;
+  --coral: #f14f4f;
   --lavender: #C7B9FF;
   --peach: #FFD6A5;
   --navy: #1E3A5F;

@@ -1,7 +1,7 @@
 #drawing-options {
   margin-bottom: 1rem;
   padding: 1rem;
-  background-color: var(--mint-light);
+  background-color: var(--matcha-light);
   border-radius: 0.75rem;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }

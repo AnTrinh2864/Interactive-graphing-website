@@ -3,7 +3,10 @@
   display: flex; justify-content: space-between; align-items: center;
   padding: 6px 8px; border-bottom: 1px solid #ddd;
   cursor: pointer; color: var(--gray-dark);
+  font-weight: 600;
 }
 .point-item:hover { background-color: var(--mint-dark); }
 .point-info { display: flex; flex-direction: column; }
 .point-coord { font-weight: bold; margin-bottom: 2px; }
+.point-item.highlighted { font-weight: bold; color:var(--lavender-dark) }
+.point-item.hidden { text-decoration: line-through; opacity: 0.6; }

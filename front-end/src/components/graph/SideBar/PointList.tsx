@@ -27,79 +27,63 @@ const PointList: React.FC<PointListProps> = ({
         <p>No points added</p>
       ) : (
         <div>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+          {/* Clear all points */}
+          <div className="equation-actions">
             <button
               onClick={clearPoints}
-              style={{
-                alignItems:"end",
-                marginRight: "5px",
-                color: "black",
-                background: "grey",
-                border: "none",
-                borderRadius: "3px",
-                cursor: "pointer",
-                padding: "2px 6px",
-              }}
+              className="delete-btn"
               title="Delete All Points"
             >
               <FaTrash />
             </button>
           </div>
-        <ul>
-          {points.map((p, idx) => (
-            <li
-              key={idx}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                cursor: "pointer",
-                fontWeight: highlighted.includes(idx) ? "bold" : "normal",
-                textDecoration: hidden.includes(idx) ? "line-through" : "none",
-              }}
-            >
-              <span
-                onContextMenu={(e) => {
-                  e.preventDefault();
-                  if (hidden.includes(idx)) {
-                    setHidden(hidden.filter((i) => i !== idx));
-                  } else {
-                    setHidden([...hidden, idx]);
-                    setHighlighted(highlighted.filter((i) => i !== idx));
-                  }
-                }}
-                onClick={() => {
-                  if (highlighted.includes(idx)) {
-                    setHighlighted(highlighted.filter((i) => i !== idx));
-                  } else {
-                    setHighlighted([...highlighted, idx]);
-                    setHidden(hidden.filter((i) => i !== idx));
-                  }
-                }}
+
+          {/* Point list */}
+          <ul className="point-list">
+            {points.map((p, idx) => (
+              <li
+                key={idx}
+                className={`point-item 
+                  ${highlighted.includes(idx) ? "highlighted" : ""} 
+                  ${hidden.includes(idx) ? "hidden" : ""}`}
               >
-                ({p.x.toFixed(2)}, {p.y.toFixed(2)})
-              </span>
-              <button
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setPoints((prev) => prev.filter((_, i) => i !== idx));
-                  setHidden(hidden.filter((i) => i !== idx));
-                  setHighlighted(highlighted.filter((i) => i !== idx));
-                }}
-                style={{
-                  marginRight: "5px",
-                  color: "black",
-                  background: "grey",
-                  border: "none",
-                  cursor: "pointer",
-                  padding: "2px 4px",
-                }}
-              >
-                <FaTrash />
-              </button>
-            </li>
-          ))}
-        </ul>
+                <span
+                  onContextMenu={(e) => {
+                    e.preventDefault();
+                    if (hidden.includes(idx)) {
+                      setHidden(hidden.filter((i) => i !== idx));
+                    } else {
+                      setHidden([...hidden, idx]);
+                      setHighlighted(highlighted.filter((i) => i !== idx));
+                    }
+                  }}
+                  onClick={() => {
+                    if (highlighted.includes(idx)) {
+                      setHighlighted(highlighted.filter((i) => i !== idx));
+                    } else {
+                      setHighlighted([...highlighted, idx]);
+                      setHidden(hidden.filter((i) => i !== idx));
+                    }
+                  }}
+                >
+                  ({p.x.toFixed(2)}, {p.y.toFixed(2)})
+                </span>
+
+                <button
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setPoints((prev) => prev.filter((_, i) => i !== idx));
+                    setHidden(hidden.filter((i) => i !== idx));
+                    setHighlighted(highlighted.filter((i) => i !== idx));
+                  }}
+                  className="delete-btn"
+                  title="Delete Point"
+                >
+                  <FaTrash />
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>
