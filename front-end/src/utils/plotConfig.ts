@@ -9,4 +9,5 @@ export const layout = {
 
 export const config = {
   displayModeBar: true,
+  responsive: true
 };

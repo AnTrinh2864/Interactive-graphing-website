@@ -31,79 +31,62 @@ const EquationList: React.FC<EquationListProps> = ({
         <p>No equations plotted</p>
       ) : (
         <div>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+          <div className="equation-actions">
             <button
               onClick={clearEquations}
-              style={{
-                marginLeft: "10px",
-                color: "black",
-                background: "grey",
-                border: "none",
-                borderRadius: "3px",
-                cursor: "pointer",
-                padding: "4px 6px",
-              }}
+              className="delete-btn"
               title="Delete All Equations"
             >
               <FaTrash />
             </button>
           </div>
-        <ul>
-          {equations.map((eq) => (
-            <li
-              key={eq.id}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                cursor: "pointer",
-                fontWeight: highlighted.includes(eq.id) ? "bold" : "normal",
-                textDecoration: hidden.includes(eq.id) ? "line-through" : "none",
-              }}
-            >
-              <span
-                onContextMenu={(e) => {
-                  e.preventDefault();
-                  if (hidden.includes(eq.id)) {
-                    setHidden(hidden.filter((id) => id !== eq.id));
-                  } else {
-                    setHidden([...hidden, eq.id]);
-                    setHighlighted(highlighted.filter((id) => id !== eq.id));
-                  }
-                }}
-                onClick={() => {
-                  if (highlighted.includes(eq.id)) {
-                    setHighlighted(highlighted.filter((id) => id !== eq.id));
-                  } else {
-                    setHighlighted([...highlighted, eq.id]);
-                    setHidden(hidden.filter((id) => id !== eq.id));
-                  }
-                }}
+
+          <ul className="equation-list">
+            {equations.map((eq) => (
+              <li
+                key={eq.id}
+                className={`equation-item ${
+                  highlighted.includes(eq.id) ? "highlighted" : ""
+                } ${hidden.includes(eq.id) ? "hidden" : ""}`}
               >
-                {eq.name}
-              </span>
-              <button
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setEquations((prev) => prev.filter((e) => e.id !== eq.id));
-                  setHighlighted(highlighted.filter((i) => i !== eq.id));
-                  setHidden(hidden.filter((i) => i !== eq.id));
-                }}
-                style={{
-                  marginRight: "5px",
-                  color: "black",
-                  background: "grey",
-                  border: "none",
-                  cursor: "pointer",
-                  padding: "2px 4px",
-                }}
-                title="Delete equation"
-              >
-                <FaTrash />
-              </button>
-            </li>
-          ))}
-        </ul>
+                <span
+                  className="equation-name"
+                  onContextMenu={(e) => {
+                    e.preventDefault();
+                    if (hidden.includes(eq.id)) {
+                      setHidden(hidden.filter((id) => id !== eq.id));
+                    } else {
+                      setHidden([...hidden, eq.id]);
+                      setHighlighted(highlighted.filter((id) => id !== eq.id));
+                    }
+                  }}
+                  onClick={() => {
+                    if (highlighted.includes(eq.id)) {
+                      setHighlighted(highlighted.filter((id) => id !== eq.id));
+                    } else {
+                      setHighlighted([...highlighted, eq.id]);
+                      setHidden(hidden.filter((id) => id !== eq.id));
+                    }
+                  }}
+                >
+                  {eq.name}
+                </span>
+
+                <button
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setEquations((prev) => prev.filter((e) => e.id !== eq.id));
+                    setHighlighted(highlighted.filter((i) => i !== eq.id));
+                    setHidden(hidden.filter((i) => i !== eq.id));
+                  }}
+                  className="delete-btn"
+                  title="Delete equation"
+                >
+                  <FaTrash />
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>

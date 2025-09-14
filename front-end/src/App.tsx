@@ -13,7 +13,7 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "20px" }} onClick={handleClick}>
+    <div style={{ display:"flex", paddingTop: "20px", paddingLeft: "20px" }} onClick={handleClick}>
       {showSplash ? (
         <SmileApp
           isExiting={exiting}
@@ -21,7 +21,6 @@ function App() {
         />
       ) : (
         <>
-          <h1>Interactive Graphing Website</h1>
           <GraphContainer />
         </>
       )}

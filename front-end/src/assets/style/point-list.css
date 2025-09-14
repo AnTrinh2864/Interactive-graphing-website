@@ -1,0 +1,9 @@
+.point-list { list-style: none; padding: 0; margin: 0; }
+.point-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 6px 8px; border-bottom: 1px solid #ddd;
+  cursor: pointer; color: var(--gray-dark);
+}
+.point-item:hover { background-color: var(--mint-dark); }
+.point-info { display: flex; flex-direction: column; }
+.point-coord { font-weight: bold; margin-bottom: 2px; }

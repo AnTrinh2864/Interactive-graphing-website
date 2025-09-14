@@ -77,13 +77,13 @@ const RightSidebar: React.FC<RightSidebarProps> = (props) => {
 
   return (
     <div
+      id = "side-bar"
       style={{
-        width: "370px",
+        width: "400px",
         marginLeft: "20px",
-        borderLeft: "1px solid cadetblue",
+        borderLeft: "2px solid cadetblue",
         paddingLeft: "10px",
-        height: "690px",
-        overflowY: "auto",
+        height: "690px"
       }}
     >
       <CollapsibleSection title="Intersections">

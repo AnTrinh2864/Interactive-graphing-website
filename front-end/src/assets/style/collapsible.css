@@ -1,0 +1,21 @@
+#collapsible-section {
+  width: 100%;                  
+  margin-bottom: 1rem;
+}
+
+#collapsible-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;                  
+  cursor: pointer;
+  font-weight: 600;
+  border-bottom: 1px solid var(--gray);
+  padding: 0.5rem 0;
+  transition: background-color 0.2s;
+}
+
+#collapsible-header:hover { background-color: var(--mint-light); color: var(--lavender); }
+#collapsible-title { font-size: 1rem; }
+#collapsible-arrow { display: inline-block; transition: transform 0.2s; color:var(--mint-dark); }
+#collapsible-content { margin-top: 0.5rem; padding-left: 0.5rem; color: var(--gray-dark); }

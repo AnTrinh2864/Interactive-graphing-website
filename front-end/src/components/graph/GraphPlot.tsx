@@ -102,10 +102,10 @@ const GraphPlot: React.FC = () => {
   const addPoint = (x: number, y: number) =>
     setPoints((prev) => [...prev, { x, y }]);
 
-  return (
-    <div style={{ display: "flex", position: "relative" }}>
+    return (
+    <div className="graph-container">
       {/* Left: Plot */}
-      <div style={{ flex: 1, position: "relative" }}>
+      <div className="left-panel">
         <EquationInput
           equation={equation}
           setEquation={setEquation}
@@ -114,7 +114,9 @@ const GraphPlot: React.FC = () => {
 
         <ManualPointInput addPoint={addPoint} />
 
-        <div ref={plotRef} style={{ width: "800px", height: "600px" }} />
+        <div className="plot-wrapper">
+          <div ref={plotRef} className="plot-div" />
+        </div>
 
         {/* Cursor tooltip */}
         {cursorCoords && !hoveredPoint && (
@@ -122,42 +124,43 @@ const GraphPlot: React.FC = () => {
         )}
       </div>
 
-      {/* Right sidebar */}
-      <RightSidebar
-        equationData={equationData}
-        points={points}
-        setEquationData={setEquationData}
-        setPoints={setPoints}
-        highlightedEquationIds={highlightedEquationIds}
-        setHighlightedEquationIds={setHighlightedEquationIds}
-        highlightedPointIndices={highlightedPointIndices}
-        setHighlightedPointIndices={setHighlightedPointIndices}
-        hiddenEquationIds={hiddenEquationIds}
-        setHiddenEquationIds={setHiddenEquationIds}
-        hiddenPointIndices={hiddenPointIndices}
-        setHiddenPointIndices={setHiddenPointIndices}
-        clearPoints={clearPoints}
-        allowLine={allowLine}
-        setAllowLine={setAllowLine}
-        allowCurve={allowCurve}
-        setAllowCurve={setAllowCurve}
-        allowCircle={allowCircle}         
-        setAllowCircle={setAllowCircle}
-        setSelectedPoints={setSelectedPoints}
-        handleClearIntersections={handleClearIntersections}
-        handleFindIntersections={handleFindIntersections}
-        IntersectionPoints={intersectionPoints}
-        setIntersectionPoints={setIntersectionPoints}
-        xMax={xMax}
-        xMin={xMin}
-        numPoints={numPoints}
-        setXMax={setXMax}
-        setXMin={setXMin}
-        setNumPoints={setNumPoints}
-        isLoading={loading}
-      />
+      {/* Right sidebar wrapper (makes sidebar responsive and scrollable) */}
+      <div className="sidebar-wrapper">
+        <RightSidebar
+          equationData={equationData}
+          points={points}
+          setEquationData={setEquationData}
+          setPoints={setPoints}
+          highlightedEquationIds={highlightedEquationIds}
+          setHighlightedEquationIds={setHighlightedEquationIds}
+          highlightedPointIndices={highlightedPointIndices}
+          setHighlightedPointIndices={setHighlightedPointIndices}
+          hiddenEquationIds={hiddenEquationIds}
+          setHiddenEquationIds={setHiddenEquationIds}
+          hiddenPointIndices={hiddenPointIndices}
+          setHiddenPointIndices={setHiddenPointIndices}
+          clearPoints={clearPoints}
+          allowLine={allowLine}
+          setAllowLine={setAllowLine}
+          allowCurve={allowCurve}
+          setAllowCurve={setAllowCurve}
+          allowCircle={allowCircle}
+          setAllowCircle={setAllowCircle}
+          setSelectedPoints={setSelectedPoints}
+          handleClearIntersections={handleClearIntersections}
+          handleFindIntersections={handleFindIntersections}
+          IntersectionPoints={intersectionPoints}
+          setIntersectionPoints={setIntersectionPoints}
+          xMax={xMax}
+          xMin={xMin}
+          numPoints={numPoints}
+          setXMax={setXMax}
+          setXMin={setXMin}
+          setNumPoints={setNumPoints}
+          isLoading={loading}
+        />
+      </div>
     </div>
   );
-};
-
+}
 export default GraphPlot;
