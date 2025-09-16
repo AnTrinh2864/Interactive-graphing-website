@@ -22,7 +22,6 @@ const DomainForm: React.FC<DomainFormProps> = ({
   setNumPoints,
   handleFindIntersections,
   handleClearIntersections,
-  isLoading,
 }) => {
   return (
     <div id="domain-form-container">

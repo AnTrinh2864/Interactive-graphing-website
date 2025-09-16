@@ -15,7 +15,7 @@ interface ThemeProps {
   setActiveTheme: (t: ThemeName) => void;
 }
 
-const Theme: React.FC<ThemeProps> = ({ activeTheme, setActiveTheme }) => {
+const Theme: React.FC<ThemeProps> = ({ setActiveTheme }) => {
   const [open, setOpen] = useState(false);
 
   const setTheme = (theme: ThemeName) => {

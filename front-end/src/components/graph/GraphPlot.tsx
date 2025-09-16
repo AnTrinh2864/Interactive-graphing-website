@@ -6,7 +6,6 @@ import RightSidebar from "./SideBar/SideBar";
 import { fetchIntersections, plotEquationAPI } from "../../apis/backend";
 import { usePlotly } from "../../hooks/graphHooks/usePlotly";
 import type { Point, Equation, IntersectionPoint } from "../../type";
-import Theme from "@/themeSetting/theme";
 import type { ThemeName } from "@/themeSetting/themeColors";
 
 const GraphPlot: React.FC = () => {

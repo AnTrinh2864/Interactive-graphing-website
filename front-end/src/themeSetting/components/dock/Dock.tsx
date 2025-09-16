@@ -20,7 +20,7 @@ export const Dock = ({ children }: DockProps) => {
   const isZooming = false
   const dockRef = React.useRef<HTMLDivElement>(null!)
 
-  const setIsZooming = React.useCallback((value: boolean) => {
+  const setIsZooming = React.useCallback(() => {
     setHovered(isZooming)
   }, [])
 
