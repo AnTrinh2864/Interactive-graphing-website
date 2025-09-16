@@ -48,7 +48,7 @@ const DomainForm: React.FC<DomainFormProps> = ({
         </div>
 
         <div className="form-row">
-          <label className="form-label">Num Points</label>
+          <label className="form-label">Number of Points</label>
           <input
             id="num-points-input"
             type="number"
@@ -62,8 +62,6 @@ const DomainForm: React.FC<DomainFormProps> = ({
         <Button
           id="find-btn"
           size="lg"
-          showTextWhileLoading={true}
-          isLoading={isLoading}
           onClick={handleFindIntersections}
         >
           Find Intersections

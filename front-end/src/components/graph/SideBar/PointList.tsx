@@ -28,6 +28,8 @@ const PointList: React.FC<PointListProps> = ({
       ) : (
         <div>
           {/* Clear all points */}
+          <div style={{display:"flex"}}>
+          <div style={{width:"91%", fontWeight:"600"}}>Delete All Points</div>
           <div className="equation-actions">
             <button
               onClick={clearPoints}
@@ -36,6 +38,7 @@ const PointList: React.FC<PointListProps> = ({
             >
               <FaTrash />
             </button>
+          </div>
           </div>
 
           {/* Point list */}

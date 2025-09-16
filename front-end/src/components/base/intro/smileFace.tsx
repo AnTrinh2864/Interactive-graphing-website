@@ -37,6 +37,8 @@ export default function SmileApp({ isExiting, onExitComplete }:SmileAppProps) {
     ref: gridApi,
     from: { x2: 0, y2: 0 },
     to: { x2: MAX_WIDTH, y2: MAX_HEIGHT },
+    reverse: isExiting,  // 👈 important
+    config: { mass: 1, tension: 200, friction: 20 },
   });
 
   const [boxSprings, boxApiFn] = useSprings(7, (i) => ({
@@ -51,14 +53,15 @@ export default function SmileApp({ isExiting, onExitComplete }:SmileAppProps) {
   const [fadeStyle, fadeApi] = useSpring(() => ({
     opacity: 1,
     scale: 1,
-    config: { duration: 1500 },
+    config: { duration: 2000 },
   }));
 
-  useChain([gridApi, boxApi], [0, 1], 1500);
+  useChain([gridApi, boxApi], [0, 0.5], 1500);
 
   // handle exit
   useEffect(() => {
     if (isExiting) {
+      gridApi.start();
       // fade and shrink out
       fadeApi.start({
         opacity: 0,
@@ -71,8 +74,11 @@ export default function SmileApp({ isExiting, onExitComplete }:SmileAppProps) {
         to: { scale: 0 },
         delay: i * 100,
       }));
+
+
     }
   }, [isExiting]);
+
 
   return (
     <div style={{display:"flex", flexDirection:"column"}}>

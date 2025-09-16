@@ -1,8 +1,8 @@
 .background-container {
-  width: 200%;
-  height: 100%;
-  background-color: rgb(67, 249, 234);
-  color: rgb(255, 255, 255);
+  width: 193%;
+  height: 2000px;
+  background-color: var(--military);
+  color: var(--tea-green);
   display: flex;
   justify-content: center;
   align-items: center;

@@ -8,25 +8,25 @@
   margin-right: 5px;
   width: 60px;
   padding: 5px 8px;
-  border: 2px solid var(--mint-dark);
+  border: 2px solid var(--umber);
   border-radius: 4px;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
-  background-color: var(--matcha-light);
-  color: var(--gray-dark);
+  background-color: var(--parchment);
+  color: var(--umber);
 }
 
 #add-point-btn {
   padding: 5px 10px;
   border: none;
-  background-color: var(--mint-dark);
+  background-color: var(--olivine);
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.1s;
 }
 
 #add-point-btn:hover {
-  background-color: var(--teal);
+  background-color: var(--military);
 }
 
 #add-point-btn:active {

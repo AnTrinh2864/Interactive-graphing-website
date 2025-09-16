@@ -11,12 +11,43 @@
 @import "./manual-point-input.css";
 @import "./graph-plot.css";
 
+/* The entire scrollbar */
+::-webkit-scrollbar {
+  width: 5px; /* or height for horizontal */
+}
+
+/* The track (background) */
+::-webkit-scrollbar-track {
+  background: transparent; /* or rgba for semi-transparent */
+}
+
+/* The draggable thumb */
+::-webkit-scrollbar-thumb {
+  background: transparent; /* 30% black */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--military); /* darker when hovered */
+}
+
+/* Remove default background */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  background: transparent;
+  margin: 0;
+}
+
 #side-bar {
   width: 33%;
   padding-left: 10px;
   height: 90%;
   padding-top: 5px;
-  margin-right: 2%;
+  margin-right: 1%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 2%;
 }
 #border-line {
   width: 4px;                 /* thickness of the line */
@@ -25,5 +56,5 @@
   margin-bottom: 2%;
 
   /* gradient background instead of border */
-  background: linear-gradient(to bottom, var(--mint), var(--lavender));
+  background: linear-gradient(to top, var(--olivine), var(--chamoisee));
 }

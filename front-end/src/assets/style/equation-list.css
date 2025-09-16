@@ -1,14 +1,18 @@
 .equation-list { list-style: none; padding: 0; margin: 0; }
 .equation-item {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 6px 8px; border-bottom: 1px solid var(--teal);
-  cursor: pointer; color: var(--gray-dark); font-weight: 500;
+  padding: 6px 8px;
+  cursor: pointer; color: var(--umber); font-weight: 500;
+  border-radius: 10px;
 }
-.equation-item:hover { background-color: var(--mint-dark); }
+.equation-item:hover { background-color: var(--olivine); }
 .equation-name { flex: 1; }
 
 /* Highlighted equation */
-.equation-item.highlighted .equation-name { font-weight: bold; color: var(--lavender-dark); }
+.equation-item.highlighted .equation-name { font-weight: bold; color: var(--olivine);  }
+.equation-item.highlighted {
+  background-color: var(--parchment);
+}
 /* Hidden equation */
 .equation-item.hidden .equation-name { text-decoration: line-through; opacity: 0.6; }
 

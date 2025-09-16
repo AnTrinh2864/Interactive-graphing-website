@@ -5,18 +5,18 @@
 #equation-input {
   margin-right: 10px;
   padding: 4px 8px;
-  border: 2px solid cadetblue;
+  border: 2px solid var(--umber);
   border-radius: 4px;
   font-size: 14px;
-  background-color: var(--matcha-light);
-  color: var(--gray-dark);
+  background-color: var(--parchment);
+  color: var(--umber);
   font-weight: 600;
   outline: none;
 }
 
 #equation-input-button {
-  background-color: var(--mint-dark);
-  color: white;
+  background-color: var(--chamoisee);
+  color: var(--parchment);
   border: none;
   border-radius: 4px;
   padding: 4px 10px;
@@ -26,5 +26,5 @@
 }
 
 #equation-input-button:hover {
-  background-color: teal;
+  background-color: var(--umber);
 }

@@ -15,8 +15,8 @@ export function buildEquationTraces(
       color: hiddenEquationIds.includes(eq.id)
         ? "lightgray"
         : highlightedEquationIds.includes(eq.id)
-        ? "#C7B9FF"
-        : "#94F0D0",
+        ? "#ca7d5aff"
+        : "#718355",
       width: highlightedEquationIds.includes(eq.id)
         ? 3
         : hiddenEquationIds.includes(eq.id)
@@ -42,12 +42,12 @@ export function buildPointTrace(
     marker: {
       color: points.map((p, i) =>
         selectedPoints.includes(p)
-          ? "#C7B9FF"
+          ? "#4d5e32ff"
           : hiddenPointIndices.includes(i)
           ? "lightgray"
           : highlightedPointIndices.includes(i)
-          ? "#ea5656ff"
-          : "#3DB8A2"
+          ? "#ca7d5aff"
+          : "#adc178ff"
       ),
       size: points.map((p, i) => {
         const isHovered =
@@ -75,7 +75,7 @@ function buildIntersectionTrace(intersectionPoints: IntersectionPoint[]) {
     marker: {
       symbol: "star",
       size: 14,
-      color: "#f7832a",
+      color: "#f1724fff",
     },
   };
 }

@@ -4,7 +4,7 @@ import { usePlotUpdate } from "./usePlotUpdate";
 import { useDrawingMode } from "./useDrawingMode";
 import { usePointSelection } from "./usePointSelection";
 import { useCursorTracking } from "./useCursorTracking";
-import type { UsePlotlyProps } from "./types";
+import type { UsePlotlyProps } from "../types";
 
 export const usePlotly = (props: UsePlotlyProps) => {
   const plotRef = useRef<HTMLDivElement>(null);

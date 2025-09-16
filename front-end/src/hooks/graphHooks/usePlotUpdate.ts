@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import Plotly from "plotly.js-dist-min";
-import { layout, config } from "../utils/plotConfig";
-import { buildEquationTraces, buildIntersectionTrace, buildPointTrace } from "../utils/traces";
-import type { Point, Equation, IntersectionPoint } from "../type";
+import { layout, config } from "../../utils/plotConfig";
+import { buildEquationTraces, buildIntersectionTrace, buildPointTrace } from "../../utils/traces";
+import type { Point, Equation, IntersectionPoint } from "../../type";
 
 export const usePlotUpdate = (
   plotRef: React.RefObject<HTMLDivElement|null>,

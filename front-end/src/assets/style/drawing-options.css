@@ -1,15 +1,15 @@
 #drawing-options {
   margin-bottom: 1rem;
   padding: 1rem;
-  background-color: var(--matcha-light);
+  background-color: var(--parchment);
   border-radius: 0.75rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px var(--olivine);
 }
 #drawing-options label {
   display: flex; align-items: center;
   margin-bottom: 0.5rem;
   font-size: 0.95rem; font-weight: 500;
-  color: var(--gray-dark); cursor: pointer;
+  color: var(--umber); cursor: pointer;
   transition: color 0.2s ease;
 }
 #drawing-options label:last-child { margin-bottom: 0; }
@@ -18,23 +18,17 @@
 #drawing-options input[type="checkbox"] {
   appearance: none;
   width: 18px; height: 18px;
-  border: 2px solid var(--teal);
+  border: 2px solid var(--umber);
   border-radius: 4px;
   margin-right: 8px;
   cursor: pointer; position: relative;
   transition: background-color 0.2s, border-color 0.2s;
 }
 #drawing-options input[type="checkbox"]:checked {
-  background-color: var(--teal); border-color: var(--teal);
+  border-color: var(--umber);
 }
 #drawing-options input[type="checkbox"]:checked::after {
   content: "✔"; position: absolute; left: 2px; top: -2px;
-  font-size: 14px; color: white;
+  font-size: 14px; color: var(--umber);
 }
-#drawing-options label:hover { color: var(--teal); }
-
-/* Dark Mode */
-.dark #drawing-options { background-color: var(--navy); color: var(--gray-light); }
-.dark #drawing-options label { color: var(--gray-light); }
-.dark #drawing-options input[type="checkbox"] { border-color: var(--mint-light); }
-.dark #drawing-options input[type="checkbox"]:checked { background-color: var(--mint-dark); border-color: var(--mint-dark); }
+#drawing-options label:hover { color: var(--chamoisee); }

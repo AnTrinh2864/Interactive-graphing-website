@@ -4,7 +4,7 @@ import ManualPointInput from "./ManualPointInput";
 import CursorTooltip from "./CursorTooltip";
 import RightSidebar from "./SideBar/SideBar";
 import { fetchIntersections, plotEquationAPI } from "../../apis/backend";
-import { usePlotly } from "../../hooks/usePlotly";
+import { usePlotly } from "../../hooks/graphHooks/usePlotly";
 import type { Point, Equation, IntersectionPoint } from "../../type";
 
 const GraphPlot: React.FC = () => {

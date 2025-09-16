@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import type { Point } from "../type";
-import type { UsePlotlyProps } from "./types";
+import type { Point } from "../../type";
+import type { UsePlotlyProps } from "../types";
 
 export const useCursorTracking = (
   plotRef: React.RefObject<HTMLDivElement | null>,

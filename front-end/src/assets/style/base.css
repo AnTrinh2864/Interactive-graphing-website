@@ -15,23 +15,17 @@ body {
 
 /* --- Default styles --- */
 :root {
-  --matcha-light: #dcfce7;
-  --mint-light: #A7F3D0;
-  --mint: #93e1d8;
-  --mint-dark: #2a9d8f;
-  --teal: #2c786c;
-  --coral: #f1bf77;
-  --lavender: #ffa69e;
-  --peach: #FFD6A5;
-  --navy: #1E3A5F;
-  --gray-light: #F3F4F6;
-  --gray: #9CA3AF;
-  --gray-dark: #2c786c;
-  --lavender-dark: #aa4465;
   color-scheme: light dark;
-  color: rgba(49, 90, 84, 0.87);
-  background-color: var(--mint-light);
 
+  --parchment: #f0ead2ff;
+  --tea-green: #dde5b6ff;
+  --olivine: #adc178ff;
+  --military:#718355;
+  --chamoisee: #a98467ff;
+  --umber: #6c584cff;
+  color: var(--umber);
+  background-color: var(--tea-green);
+  
   line-height: 1.5;
   font-weight: 400;
 }

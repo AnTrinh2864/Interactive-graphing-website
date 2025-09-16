@@ -1,15 +1,15 @@
 #cursor-tooltip {
   position: fixed;
   transform: translate(-50%, -100%);
-  background: var(--mint-light);
-  color: var(--mint-dark);
+  background: var(--tea-green);
+  color: var(--umber);
   padding: 6px 10px;
   border-radius: 6px;
   font-size: 12px;
   font-weight: 600;
   z-index: 999;
   pointer-events: none;
-  border: 2px solid cadetblue; /* matches sidebar */
+  border: 2px solid var(--military); /* matches sidebar */
   min-width: 90px;
   text-align: center;
 }

@@ -5,49 +5,49 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: var(--mint-dark);
+  background-color: var(--olivine);
   cursor: pointer;
   transition: background-color 0.25s;
 }
-button:hover { background-color: var(--teal); }
+button:hover { background-color: var(--umber); }
 button:focus, button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
 /* Find button */
 #find-btn {
-  background-color: var(--mint-dark);
-  color: white;
+  background-color: var(--olivine);
+  color: var(--parchment);
   border-radius: 0.5rem;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: 600;
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
-#find-btn:hover { background-color: var(--teal); transform: translateY(-2px); }
+#find-btn:hover { background-color: var(--military); transform: translateY(-2px); }
 #find-btn:disabled { background-color: var(--gray); cursor: not-allowed; }
 
 /* Clear button */
 #clear-btn {
-  background-color: var(--lavender);
-  color: white;
+  background-color: var(--chamoisee);
+  color: var(--parchment);
   border-radius: 0.5rem;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: 600;
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
-#clear-btn:hover { background-color: var(--lavender-dark); transform: translateY(-2px); }
+#clear-btn:hover { background-color: var(--umber); transform: translateY(-2px); }
 #clear-btn:disabled { background-color: var(--gray); cursor: not-allowed; }
 
 /* Delete button (small) */
 .delete-btn {
-  background: var(--lavender);
-  color: var(--gray-light);
+  background: var(--chamoisee);
+  color: var(--parchment);
   border: none;
   border-radius: 4px;
   padding: 4px 6px;
   cursor: pointer;
   transition: background 0.2s ease;
 }
-.delete-btn:hover { background: var(--lavender-dark); }
+.delete-btn:hover { background: var(--umber); }

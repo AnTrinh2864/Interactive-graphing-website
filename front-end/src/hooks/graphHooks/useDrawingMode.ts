@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { fitLine, fitQuadratic, fitCircle } from "../apis/backend";
-import type { Point, Equation } from "../type";
+import { fitLine, fitQuadratic, fitCircle } from "../../apis/backend";
+import type { Point, Equation } from "../../type";
 
 interface Props {
   selectedPoints: Point[];

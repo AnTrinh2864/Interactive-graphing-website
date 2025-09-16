@@ -37,5 +37,5 @@ html, body {
   min-width: 0; 
   min-height: 0; 
   border: 5px solid;
-  border-image: linear-gradient(to bottom, var(--mint), var(--lavender)) 1;
+  border-image: linear-gradient(to bottom, var(--olivine), var(--chamoisee)) 1;
 }
