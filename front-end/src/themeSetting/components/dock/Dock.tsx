@@ -12,17 +12,16 @@ interface DockProps {
   children: React.ReactNode
 }
 
-export const DOCK_ZOOM_LIMIT = [-100, 50]
+export const DOCK_ZOOM_LIMIT = [-50, 50]
 
 export const Dock = ({ children }: DockProps) => {
   const [hovered, setHovered] = React.useState(false)
   const [width, setWidth] = React.useState(0)
-  const isZooming = React.useRef(false)
+  const isZooming = false
   const dockRef = React.useRef<HTMLDivElement>(null!)
 
   const setIsZooming = React.useCallback((value: boolean) => {
-    isZooming.current = value
-    setHovered(!value)
+    setHovered(isZooming)
   }, [])
 
   const zoomLevel = useSpringValue(1, {
@@ -41,7 +40,7 @@ export const Dock = ({ children }: DockProps) => {
         ref={dockRef}
         className={styles.dock}
         onMouseOver={() => {
-          if (!isZooming.current) {
+          if (isZooming) {
             setHovered(true)
           }
         }}

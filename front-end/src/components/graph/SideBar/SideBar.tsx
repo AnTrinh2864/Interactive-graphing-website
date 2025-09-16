@@ -5,6 +5,8 @@ import EquationList from "./EquationList";
 import PointList from "./PointList";
 import IntersectionPointList from "./IntersectionsList.tsx";
 import CollapsibleSection from "./Collapsible";
+import Theme from "@/themeSetting/theme.tsx";
+import type { ThemeName } from "@/themeSetting/themeColors.ts";
 
 interface RightSidebarProps {
   equationData: Equation[];
@@ -38,6 +40,8 @@ interface RightSidebarProps {
   setXMax: React.Dispatch<React.SetStateAction<number>>;
   setNumPoints: React.Dispatch<React.SetStateAction<number>>;
   isLoading: boolean;
+  activeTheme: ThemeName;
+  setActiveTheme: (t: ThemeName) => void;
 }
 
 const RightSidebar: React.FC<RightSidebarProps> = ({
@@ -71,10 +75,13 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
   setXMax,
   setXMin,
   setNumPoints,
-  isLoading
+  isLoading,
+  activeTheme,
+  setActiveTheme,
 }) => {
   return (
     <div id="side-bar">
+      <Theme activeTheme={activeTheme} setActiveTheme={setActiveTheme} />
       <CollapsibleSection title="Intersections">
         <IntersectionPointList
           points={IntersectionPoints}

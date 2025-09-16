@@ -1,10 +1,13 @@
-import type { Point, Equation, IntersectionPoint } from "../type";
+import { themeColors, type ThemeName } from "@/themeSetting/themeColors";
+import type { Equation, IntersectionPoint, Point } from "@/type";
 
 export function buildEquationTraces(
   equationData: Equation[],
   hiddenEquationIds: string[],
-  highlightedEquationIds: string[]
+  highlightedEquationIds: string[],
+  theme: ThemeName ="default"
 ) {
+  const colors = themeColors[theme] ?? themeColors.default;
   return equationData.map((eq) => ({
     x: eq.x,
     y: eq.y?.map((v) => (v === null ? NaN : v)),
@@ -15,8 +18,8 @@ export function buildEquationTraces(
       color: hiddenEquationIds.includes(eq.id)
         ? "lightgray"
         : highlightedEquationIds.includes(eq.id)
-        ? "#ca7d5aff"
-        : "#718355",
+        ? colors.highlight
+        : colors.line,
       width: highlightedEquationIds.includes(eq.id)
         ? 3
         : hiddenEquationIds.includes(eq.id)
@@ -31,8 +34,10 @@ export function buildPointTrace(
   selectedPoints: Point[],
   hiddenPointIndices: number[],
   highlightedPointIndices: number[],
-  hoveredPoint: Point | null
+  hoveredPoint: Point | null,
+  theme: ThemeName
 ) {
+  const colors = themeColors[theme] ?? themeColors.default;
   return {
     x: points.map((p) => p.x),
     y: points.map((p) => p.y),
@@ -42,12 +47,12 @@ export function buildPointTrace(
     marker: {
       color: points.map((p, i) =>
         selectedPoints.includes(p)
-          ? "#4d5e32ff"
+          ? colors.pointSelected
           : hiddenPointIndices.includes(i)
           ? "lightgray"
           : highlightedPointIndices.includes(i)
-          ? "#ca7d5aff"
-          : "#adc178ff"
+          ? colors.highlight
+          : colors.point
       ),
       size: points.map((p, i) => {
         const isHovered =
@@ -60,12 +65,12 @@ export function buildPointTrace(
   };
 }
 
-export 
-function buildIntersectionTrace(intersectionPoints: IntersectionPoint[]) {
-    if (!intersectionPoints) {
-        console.log("NO INTERSECTIONS FOUND")
-        return null;
-    }
+export function buildIntersectionTrace(
+  intersectionPoints: IntersectionPoint[],
+  theme: ThemeName
+) {
+  if (!intersectionPoints) return null;
+  const colors = themeColors[theme] ?? themeColors.default;
   return {
     x: intersectionPoints.map((p) => p.x),
     y: intersectionPoints.map((p) => p.y),
@@ -75,7 +80,7 @@ function buildIntersectionTrace(intersectionPoints: IntersectionPoint[]) {
     marker: {
       symbol: "star",
       size: 14,
-      color: "#f1724fff",
+      color: colors.intersection,
     },
   };
 }

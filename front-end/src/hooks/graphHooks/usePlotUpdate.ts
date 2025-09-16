@@ -1,11 +1,17 @@
 import { useEffect } from "react";
 import Plotly from "plotly.js-dist-min";
-import { layout, config } from "../../utils/plotConfig";
-import { buildEquationTraces, buildIntersectionTrace, buildPointTrace } from "../../utils/traces";
+import { buildLayout } from "../../utils/plotConfig";
+import {
+  buildEquationTraces,
+  buildIntersectionTrace,
+  buildPointTrace,
+} from "../../utils/traces";
 import type { Point, Equation, IntersectionPoint } from "../../type";
+import type { ThemeName } from "../../themeSetting/themeColors";
+import { config } from "../../utils/plotConfig";
 
 export const usePlotUpdate = (
-  plotRef: React.RefObject<HTMLDivElement|null>,
+  plotRef: React.RefObject<HTMLDivElement | null>,
   points: Point[],
   equationData: Equation[],
   hiddenEquationIds: string[],
@@ -14,35 +20,43 @@ export const usePlotUpdate = (
   highlightedPointIndices: number[],
   hoveredPoint: Point | null,
   selectedPoints: Point[],
-  intersectionPoints: IntersectionPoint[]
+  intersectionPoints: IntersectionPoint[],
+  theme: ThemeName // <- new
 ) => {
   useEffect(() => {
     if (!plotRef.current) return;
     const el = plotRef.current as any;
+
+    // traces themed
     const eqTraces = buildEquationTraces(
       equationData,
       hiddenEquationIds,
-      highlightedEquationIds
+      highlightedEquationIds,
+      theme
     );
     const scatterPoints = buildPointTrace(
       points,
       selectedPoints,
       hiddenPointIndices,
       highlightedPointIndices,
-      hoveredPoint
+      hoveredPoint,
+      theme
     );
+    const intersectionTrace = buildIntersectionTrace(intersectionPoints, theme);
 
+    // layout themed
+    const nextLayout: any = buildLayout(theme);
+
+    // preserve zoom/pan ranges
     const full = el?._fullLayout;
-    const nextLayout: any = { ...layout };
-
     if (full?.xaxis?.range && full?.yaxis?.range) {
       nextLayout.xaxis = { ...nextLayout.xaxis, range: full.xaxis.range.slice() };
       nextLayout.yaxis = { ...nextLayout.yaxis, range: full.yaxis.range.slice() };
     }
-    const intersectionTrace = buildIntersectionTrace(intersectionPoints);
+
     Plotly.react(
       plotRef.current,
-      [...eqTraces, scatterPoints, intersectionTrace? intersectionTrace : {}],
+      [...eqTraces, scatterPoints, intersectionTrace ?? {}],
       nextLayout,
       config
     );
@@ -55,6 +69,7 @@ export const usePlotUpdate = (
     highlightedPointIndices,
     hoveredPoint,
     selectedPoints,
-    intersectionPoints
+    intersectionPoints,
+    theme, // <- re-run when theme changes
   ]);
 };

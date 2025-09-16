@@ -27,10 +27,9 @@ export const DockCard: React.FC<DockCardProps> = ({ children, onClick, isActive 
   })
 
   const opacity = useSpringValue(0)
-  const y = useSpringValue(0, {
+  const x = useSpringValue(0, {
     config: { friction: 29, tension: 238 },
   })
-
   const dock = useDock()
 
   // resize effect to compute center position
@@ -71,32 +70,33 @@ export const DockCard: React.FC<DockCardProps> = ({ children, onClick, isActive 
   // bounce animation handler
   const runBounceAnimation = () => {
     if (!isAnimating.current) {
-      isAnimating.current = true
-      opacity.start(0.5)
-      timesLooped.current = 0
+        isAnimating.current = true
+        opacity.start(0.5)
+        timesLooped.current = 0
 
-      y.start(-INITIAL_WIDTH / 2, {
+        // bounce left/right
+        x.start(-INITIAL_WIDTH / 2, {
         loop: () => {
-          if (3 === timesLooped.current++) {
+            if (3 === timesLooped.current++) {
             timeoutRef.current = setTimeout(() => {
-              opacity.start(0)
-              y.set(0)
-              isAnimating.current = false
-              timeoutRef.current = undefined
+                opacity.start(0)
+                x.set(0)
+                isAnimating.current = false
+                timeoutRef.current = undefined
             }, 2000)
-            y.stop()
-          }
-          return { reverse: true }
+            x.stop()
+            }
+            return { reverse: true }
         },
-      })
+        })
     } else {
-      // premature exit
-      if (timeoutRef.current) clearTimeout(timeoutRef.current)
-      opacity.start(0)
-      y.start(0)
-      isAnimating.current = false
+        // premature exit
+        if (timeoutRef.current) clearTimeout(timeoutRef.current)
+        opacity.start(0)
+        x.start(0)
+        isAnimating.current = false
     }
-  }
+    }
 
   // cleanup
   React.useEffect(() => {
@@ -123,7 +123,7 @@ export const DockCard: React.FC<DockCardProps> = ({ children, onClick, isActive 
         style={{
           width: size,
           height: size,
-          y,
+          x,
         }}
       >
         {children}

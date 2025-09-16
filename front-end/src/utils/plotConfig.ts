@@ -1,19 +1,30 @@
-export const layout = {
-  margin: { t: 20, l: 40, r: 20, b: 40 },
-  xaxis: { zeroline: true, autorange: false, 
-          gridcolor: "#6d8455ff",     
-          zerolinecolor: "#6c584c", 
-          tickfont: { color: "#6c584c" }, },
-  yaxis: { zeroline: true, 
-          autorange: false, 
-          gridcolor: "#6d8455ff",
-          zerolinecolor: "#6c584c",
-          tickfont: { color: "#6c584c" }, },
-  hovermode: "closest" as const,
-  clickmode: "event+select" as const,
-  showlegend: false, 
-  paper_bgcolor: "#fffae4ff",   // tea-green background
-  plot_bgcolor: "#fffae4ff",    // parchment plot area
+import { themeColors, type ThemeName } from "../themeSetting/themeColors"
+
+export function buildLayout(theme: ThemeName = "default") {
+  const colors = themeColors[theme] ?? themeColors.default;
+
+  return {
+    margin: { t: 20, l: 40, r: 20, b: 40 },
+    xaxis: {
+      zeroline: true,
+      autorange: false,
+      gridcolor: colors.grid,
+      zerolinecolor: colors.axis,
+      tickfont: { color: colors.axis },
+    },
+    yaxis: {
+      zeroline: true,
+      autorange: false,
+      gridcolor: colors.grid,
+      zerolinecolor: colors.axis,
+      tickfont: { color: colors.axis },
+    },
+    hovermode: "closest" as const,
+    clickmode: "event+select" as const,
+    showlegend: false,
+    paper_bgcolor: colors.paper,
+    plot_bgcolor: colors.plot,
+  };
 };
 
 export const config = {

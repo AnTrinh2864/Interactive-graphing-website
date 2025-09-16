@@ -3,36 +3,37 @@ import styles from "./style.module.scss";
 import { Dock } from "./components/dock/Dock";
 import { DockCard } from "./components/dock-card/DockCard";
 import { Card } from "./components/card/Card";
+import type { ThemeName } from "./themeColors";
 
-const THEMES = [
-  { src: "/assets/Tea.png", theme: undefined }, // default
-  { src: "/assets/ocean.png", theme: "theme-ocean" },
-  { src: "/assets/Sunset.png", theme: "theme-sunset" },
+const THEMES: { src: string; theme: ThemeName }[] = [
+  { src: "/assets/Tea.png", theme: "default" },
+  { src: "/assets/ocean.png", theme: "ocean" },
+  { src: "/assets/Sunset.png", theme: "sunset" },
 ];
+interface ThemeProps {
+  activeTheme: ThemeName;
+  setActiveTheme: (t: ThemeName) => void;
+}
 
-const Theme: React.FC = () => {
-  const [activeTheme, setActiveTheme] = useState<string | undefined>(undefined);
+const Theme: React.FC<ThemeProps> = ({ activeTheme, setActiveTheme }) => {
   const [open, setOpen] = useState(false);
 
-  const setTheme = (theme?: string) => {
+  const setTheme = (theme: ThemeName) => {
     document.body.classList.remove("theme-ocean", "theme-sunset");
-    if (theme) {
-      document.body.classList.add(theme);
-    }
-    setActiveTheme(theme);
-
-    if (theme) {
+    if (theme !== "default") {
+      document.body.classList.add(`theme-${theme}`);
       localStorage.setItem("theme", theme);
     } else {
       localStorage.removeItem("theme");
     }
+    setActiveTheme(theme??"default");
   };
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved) setTheme(saved || undefined);
+    const saved = (localStorage.getItem("theme") as ThemeName) || "default";
+    setTheme(saved);
   }, []);
-
+  
   return (
     <>
       {/* Toggle Button */}
@@ -47,7 +48,6 @@ const Theme: React.FC = () => {
             <DockCard
               key={src}
               onClick={() => setTheme(theme)}
-              isActive={activeTheme === theme} // highlight active
             >
               <Card src={src} />
             </DockCard>

@@ -1,3 +1,4 @@
+import type { ThemeName } from "@/themeSetting/themeColors";
 import type { Point, Equation, IntersectionPoint } from "../type";
 
 export interface UsePlotlyProps {
@@ -20,4 +21,5 @@ export interface UsePlotlyProps {
   allowCurve: boolean;
   allowCircle: boolean;
   intersectionPoints: IntersectionPoint[];
+  theme: ThemeName;
 }

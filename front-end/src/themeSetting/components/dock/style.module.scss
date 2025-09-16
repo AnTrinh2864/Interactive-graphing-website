@@ -1,18 +1,19 @@
 .dock {
   position: relative;
-  top: 12px;
-  left: 50%;
+  top: -300px;
+  left: 10%;
   transform: translateX(-50%);
   align-items: flex-start;
-  height: 58px;
-  width: 170px;
+  height: 10px;
+  width: 30px;
   display: flex;
   padding: 10px;
   padding-bottom: 6px;
   gap: 12px;
-  background-color: rgba(39, 36, 36, 0.92);
+  background-color: transparent;
   will-change: contents;
   box-sizing: content-box;
   border-radius: 12px;
   transform-origin: center bottom;
+  flex-direction: column;
 }

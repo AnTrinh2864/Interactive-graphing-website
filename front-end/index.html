@@ -7,6 +7,13 @@
     <title>Graphing Calculator</title>
   </head>
   <body>
+    <script>
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        document.body.classList.add("theme-"+ savedTheme);
+      }
+    </script>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

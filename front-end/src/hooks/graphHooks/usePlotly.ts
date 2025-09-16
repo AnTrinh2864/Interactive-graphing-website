@@ -8,7 +8,11 @@ import type { UsePlotlyProps } from "../types";
 
 export const usePlotly = (props: UsePlotlyProps) => {
   const plotRef = useRef<HTMLDivElement>(null);
-  usePlotInit(plotRef);
+
+  // Initialize empty plot
+  usePlotInit(plotRef, props.theme);
+
+  // Update plot with data + theme
   usePlotUpdate(
     plotRef,
     props.points,
@@ -20,11 +24,13 @@ export const usePlotly = (props: UsePlotlyProps) => {
     props.hoveredPoint,
     props.selectedPoints,
     props.intersectionPoints,
+    props.theme // ✅ pass theme properly as a prop
   );
+
+  // Interaction hooks
   useDrawingMode(props);
   usePointSelection(plotRef, props);
   useCursorTracking(plotRef, props);
 
- 
   return { plotRef };
 };

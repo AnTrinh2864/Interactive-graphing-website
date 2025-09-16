@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EquationInput from "./EquationInput";
 import ManualPointInput from "./ManualPointInput";
 import CursorTooltip from "./CursorTooltip";
@@ -6,7 +6,8 @@ import RightSidebar from "./SideBar/SideBar";
 import { fetchIntersections, plotEquationAPI } from "../../apis/backend";
 import { usePlotly } from "../../hooks/graphHooks/usePlotly";
 import type { Point, Equation, IntersectionPoint } from "../../type";
-import Theme from "../../themeSetting/theme";
+import Theme from "@/themeSetting/theme";
+import type { ThemeName } from "@/themeSetting/themeColors";
 
 const GraphPlot: React.FC = () => {
   const [points, setPoints] = useState<Point[]>([]); 
@@ -32,6 +33,20 @@ const GraphPlot: React.FC = () => {
 
   // ✅ loading state
   const [loading, setLoading] = useState(false);
+
+  //Theme
+  const [activeTheme, setActiveTheme] = useState<ThemeName>("default");
+  // On mount
+  useEffect(() => {
+    const saved = (localStorage.getItem("theme") as ThemeName) || "default";
+    setActiveTheme(saved);
+
+    document.body.classList.remove("theme-ocean", "theme-sunset");
+    if (saved !== "default") {
+      document.body.classList.add(`theme-${saved}`);
+    }
+  }, []);
+
 
   const handleFindIntersections = async () => {
     setLoading(true); // show overlay
@@ -74,7 +89,8 @@ const GraphPlot: React.FC = () => {
     allowLine,
     allowCurve,
     allowCircle,
-    intersectionPoints
+    intersectionPoints,
+    theme: activeTheme,
   });
 
   const plotEquation = async () => {
@@ -107,7 +123,6 @@ const GraphPlot: React.FC = () => {
     <div id="graph-root">
       {/* Left: Plot */}
       <div id="plot-section">
-        <Theme></Theme>
         <EquationInput
           equation={equation}
           setEquation={setEquation}
@@ -157,6 +172,8 @@ const GraphPlot: React.FC = () => {
         setXMin={setXMin}
         setNumPoints={setNumPoints}
         isLoading={loading}
+        activeTheme={activeTheme}
+        setActiveTheme={setActiveTheme}
       />
     </div>
   );
