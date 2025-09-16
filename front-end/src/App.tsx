@@ -13,7 +13,7 @@ function App() {
   };
 
   return (
-    <div style={{ display:"flex", paddingTop: "20px", paddingLeft: "20px" }} onClick={handleClick}>
+    <div style={{ display:"flex", flexDirection:"column", paddingTop: "20px", paddingLeft: "20px" }} onClick={handleClick}>
       {showSplash ? (
         <SmileApp
           isExiting={exiting}

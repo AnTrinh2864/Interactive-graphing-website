@@ -17,12 +17,13 @@ body {
 :root {
   color-scheme: light dark;
 
-  --parchment: #f0ead2ff;
-  --tea-green: #dde5b6ff;
-  --olivine: #adc178ff;
-  --military:#718355;
-  --chamoisee: #a98467ff;
-  --umber: #6c584cff;
+  --parchment: #f0ead2ff; /*secondary background*/
+  --tea-green: #dde5b6ff; /*main background*/ 
+  --olivine: #adc178ff; /*main content*/
+  --military:#718355; /*highlight content*/
+  --chamoisee: #a98467ff; /*alert content*/
+  --umber: #6c584cff; /*highligh alert and text color*/
+  --gray: #a7a7a7;
   color: var(--umber);
   background-color: var(--tea-green);
   
@@ -30,13 +31,42 @@ body {
   font-weight: 400;
 }
 
+
+/* Ocean theme */
+.theme-ocean {
+  --parchment: #e6e5e0;
+  --tea-green: #c5dbf0;
+  --olivine: #96b8db;
+  --military: #96b8db;
+  --chamoisee: #203590;
+  --umber: #230462;
+  --gray: #94a3b8;
+
+  color: var(--umber);
+  background-color: var(--tea-green);
+}
+
+/* Sunset theme */
+.theme-sunset {
+  --parchment: #ffdbc8;
+  --tea-green: #f1bfae;
+  --olivine: #ce6a85;
+  --military: #985277;
+  --chamoisee: #984c6e;
+  --umber: #5c3752;
+  --gray: #8d6e63;
+
+  color: var(--umber);
+  background-color: var(--tea-green);
+}
+
 /* Typography */
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--chamoisee);
   text-decoration: none;
 }
-a:hover { color: #535bf2; }
+a:hover { color: var(--umber); }
 
 h1 {
   font-size: 3.2em;

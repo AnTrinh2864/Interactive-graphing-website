@@ -6,6 +6,7 @@ import RightSidebar from "./SideBar/SideBar";
 import { fetchIntersections, plotEquationAPI } from "../../apis/backend";
 import { usePlotly } from "../../hooks/graphHooks/usePlotly";
 import type { Point, Equation, IntersectionPoint } from "../../type";
+import Theme from "../../themeSetting/theme";
 
 const GraphPlot: React.FC = () => {
   const [points, setPoints] = useState<Point[]>([]); 
@@ -106,6 +107,7 @@ const GraphPlot: React.FC = () => {
     <div id="graph-root">
       {/* Left: Plot */}
       <div id="plot-section">
+        <Theme></Theme>
         <EquationInput
           equation={equation}
           setEquation={setEquation}

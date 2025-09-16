@@ -1,6 +1,6 @@
 .background-container {
   width: 193%;
-  height: 2000px;
+  height: 100%;
   background-color: var(--military);
   color: var(--tea-green);
   display: flex;
