@@ -5,9 +5,9 @@ export function buildEquationTraces(
   equationData: Equation[],
   hiddenEquationIds: string[],
   highlightedEquationIds: string[],
-  theme: ThemeName ="default"
+  theme: ThemeName ="forest"
 ) {
-  const colors = themeColors[theme] ?? themeColors.default;
+  const colors = themeColors[theme] ?? themeColors.forest;
   return equationData.map((eq) => ({
     x: eq.x,
     y: eq.y?.map((v) => (v === null ? NaN : v)),
@@ -37,7 +37,7 @@ export function buildPointTrace(
   hoveredPoint: Point | null,
   theme: ThemeName
 ) {
-  const colors = themeColors[theme] ?? themeColors.default;
+  const colors = themeColors[theme] ?? themeColors.forest;
   return {
     x: points.map((p) => p.x),
     y: points.map((p) => p.y),
@@ -70,7 +70,7 @@ export function buildIntersectionTrace(
   theme: ThemeName
 ) {
   if (!intersectionPoints) return null;
-  const colors = themeColors[theme] ?? themeColors.default;
+  const colors = themeColors[theme] ?? themeColors.forest;
   return {
     x: intersectionPoints.map((p) => p.x),
     y: intersectionPoints.map((p) => p.y),

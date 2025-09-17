@@ -42,6 +42,8 @@ interface RightSidebarProps {
   isLoading: boolean;
   activeTheme: ThemeName;
   setActiveTheme: (t: ThemeName) => void;
+  mode: string;
+  setMode: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const RightSidebar: React.FC<RightSidebarProps> = ({
@@ -78,10 +80,12 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
   isLoading,
   activeTheme,
   setActiveTheme,
+  mode,
+  setMode
 }) => {
   return (
     <div id="side-bar">
-      <Theme activeTheme={activeTheme} setActiveTheme={setActiveTheme} />
+      <Theme activeTheme={activeTheme} setActiveTheme={setActiveTheme} mode={mode} setMode={setMode} />
       <CollapsibleSection title="Intersections">
         <IntersectionPointList
           points={IntersectionPoints}

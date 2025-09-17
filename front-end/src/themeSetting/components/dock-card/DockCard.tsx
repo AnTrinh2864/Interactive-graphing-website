@@ -63,40 +63,7 @@ export const DockCard: React.FC<DockCardProps> = ({ children, onClick, isActive 
   }, [dock.hovered])
 
   // animation state
-  const timesLooped = React.useRef(0)
   const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
-  const isAnimating = React.useRef(false)
-
-  // bounce animation handler
-  const runBounceAnimation = () => {
-    if (!isAnimating.current) {
-        isAnimating.current = true
-        opacity.start(0.5)
-        timesLooped.current = 0
-
-        // bounce left/right
-        x.start(-INITIAL_WIDTH / 2, {
-        loop: () => {
-            if (3 === timesLooped.current++) {
-            timeoutRef.current = setTimeout(() => {
-                opacity.start(0)
-                x.set(0)
-                isAnimating.current = false
-                timeoutRef.current = undefined
-            }, 2000)
-            x.stop()
-            }
-            return { reverse: true }
-        },
-        })
-    } else {
-        // premature exit
-        if (timeoutRef.current) clearTimeout(timeoutRef.current)
-        opacity.start(0)
-        x.start(0)
-        isAnimating.current = false
-    }
-    }
 
   // cleanup
   React.useEffect(() => {
@@ -107,7 +74,6 @@ export const DockCard: React.FC<DockCardProps> = ({ children, onClick, isActive 
 
   // combined click
   const handleClick = () => {
-    runBounceAnimation()
     onClick?.() // call parent handler if provided
   }
 

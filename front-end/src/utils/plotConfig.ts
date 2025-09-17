@@ -1,7 +1,7 @@
 import { themeColors, type ThemeName } from "../themeSetting/themeColors"
 
-export function buildLayout(theme: ThemeName = "default", x_min: number, x_max:number) {
-  const colors = themeColors[theme] ?? themeColors.default;
+export function buildLayout(theme: ThemeName = "forest", x_min: number, x_max:number) {
+  const colors = themeColors[theme] ?? themeColors.forest;
 
   return {
     margin: { t: 20, l: 40, r: 20, b: 40 },
@@ -11,15 +11,16 @@ export function buildLayout(theme: ThemeName = "default", x_min: number, x_max:n
       gridcolor: colors.grid,
       zerolinecolor: colors.axis,
       tickfont: { color: colors.axis },
-      range: [x_min, x_max]
+      range: [x_min, x_max],
+      scaleanchor: "y",     
+      scaleratio: 1, 
     },
     yaxis: {
       zeroline: true,
       autorange: false,
       gridcolor: colors.grid,
       zerolinecolor: colors.axis,
-      tickfont: { color: colors.axis },
-      range: [x_min, x_max]
+      tickfont: { color: colors.axis }, 
     },
     hovermode: "closest" as const,
     clickmode: "event+select" as const,

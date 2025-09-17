@@ -37,7 +37,7 @@ def fit_circle(req: PointsRequest):
         return {"error": "Circle requires exactly 2 points (center, edge)"}
     (x1, y1), (x2, y2) = points
     r = float(np.sqrt((x2 - x1)**2 + (y2 - y1)**2))
-    theta = np.linspace(0, 2 * np.pi, 500)
+    theta = np.linspace(0, 2 * np.pi, 2000)
     x_vals = (x1 + r * np.cos(theta)).tolist()
     y_vals = (y1 + r * np.sin(theta)).tolist()
     return {"h": float(x1), "k": float(y1), "r": r, "x": x_vals, "y": y_vals}

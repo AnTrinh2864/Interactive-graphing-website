@@ -25,6 +25,7 @@
   cursor: pointer;
   transition: background-color 0.2s, transform 0.1s;
   padding-top: 3px;
+  color: var(--parchment)
 }
 
 #add-point-btn:hover {

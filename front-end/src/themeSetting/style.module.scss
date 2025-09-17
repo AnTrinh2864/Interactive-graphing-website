@@ -5,10 +5,13 @@
   top: 1rem;
   right: 1rem;
   z-index: 10000;
-  color: floralwhite;
+  color: var(--parchment);
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+.toggleButton:hover {
+  background-color: var(--military)
 }
 .themePanel {
   position: fixed;

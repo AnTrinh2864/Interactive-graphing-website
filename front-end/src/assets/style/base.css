@@ -16,21 +16,21 @@ body {
 /* --- Default styles --- */
 :root {
   color-scheme: light dark;
-
-  --parchment: #f0ead2ff; /*secondary background*/
-  --tea-green: #dde5b6ff; /*main background*/ 
-  --olivine: #adc178ff; /*main content*/
-  --military:#718355; /*highlight content*/
-  --chamoisee: #a98467ff; /*alert content*/
-  --umber: #6c584cff; /*highligh alert and text color*/
-  --gray: #a7a7a7;
-  color: var(--umber);
-  background-color: var(--tea-green);
-  
   line-height: 1.5;
   font-weight: 400;
 }
 
+.theme-forest {
+  --parchment: #f0ead2ff; /*secondary background*/
+  --tea-green: #cde5b6; /*main background*/ 
+  --olivine: #95c178; /*main content*/
+  --military:#718355; /*highlight content*/
+  --chamoisee: #96745b; /*alert content*/
+  --umber: rgb(67, 53, 45); /*highligh alert and text color*/
+  --gray: #a7a7a7;
+  color: var(--umber);
+  background-color: var(--tea-green);
+}
 
 /* Ocean theme */
 .theme-ocean {
@@ -47,7 +47,7 @@ body {
 }
 
 /* Sunset theme */
-.theme-sunset {
+.theme-love {
   --parchment: #ffdbc8;
   --tea-green: #f1bfae;
   --olivine: #ce6a85;
@@ -59,6 +59,126 @@ body {
   color: var(--umber);
   background-color: var(--tea-green);
 }
+.theme-liliac {
+  --parchment: #ebdaff;   /* paper/plot */
+  --tea-green: #d8b8f0;   /* background */
+  --olivine: #4e1282;     /* line */
+  --military: #180247;    /* highlight */
+  --chamoisee: #a559d7;   /* point */
+  --umber: #8d379a;       /* pointSelected */
+  --gray: #4e4156;        /* intersection */
+  
+  color: var(--umber);
+  background-color: var(--tea-green);
+}
+.theme-orange {
+  --parchment: #fff5d4;   /* paper/plot */
+  --tea-green: #eedebb;   /* background */
+  --olivine: #e68346;     /* line */
+  --military: #d35e33;    /* highlight */
+  --chamoisee: #af594a;   /* point */
+  --umber: #772a2a;       /* pointSelected */
+  --gray: #654444;        /* intersection */
+  
+  color: var(--umber);
+  background-color: var(--tea-green);
+}
+.theme-monochrome {
+  --parchment: #ffffff;   /* paper/plot */
+  --tea-green: #e5e5e5;   /* background */
+  --olivine: #abb0b7;     /* line */
+  --military: #71787e;    /* highlight */
+  --chamoisee: #4c4a51;   /* point */
+  --umber: #3b3b3b;       /* pointSelected */
+  --gray: #000000;        /* intersection */
+  color: var(--umber);
+  background-color: var(--tea-green);
+}
+/* Forest Dark */
+.theme-forest_dark {
+  --parchment: #2c2f24;   /* secondary background */
+  --tea-green: #3c4732;   /* main background */
+  --olivine: #6a8f58;     /* main content */
+  --military: #a9c08c;    /* highlight content */
+  --chamoisee: #b68a73;   /* alert content */
+  --umber: #e2d7cc;       /* highlight alert & text */
+  --gray: #9a9a9a;
+
+  color: var(--umber);
+  background-color: var(--tea-green);
+}
+
+/* Ocean Dark */
+.theme-ocean_dark {
+  --parchment: #1e1f23;
+  --tea-green: #243446;
+  --olivine: #5d7fa6;
+  --military: #7ea6d4;
+  --chamoisee: #3b4f91;
+  --umber: #d6dff8;
+  --gray: #6c7a89;
+
+  color: var(--umber);
+  background-color: var(--tea-green);
+}
+
+/* Love (Sunset) Dark */
+.theme-love_dark {
+  --parchment: #2e1b1e;
+  --tea-green: #442c33;
+  --olivine: #ce6a85;
+  --military: #b97a91;
+  --chamoisee: #c2788e;
+  --umber: #f0d8e1;
+  --gray: #a89992;
+
+  color: var(--umber);
+  background-color: var(--tea-green);
+}
+
+/* Liliac Dark */
+.theme-liliac_dark {
+  --parchment: #1b0f29;
+  --tea-green: #2a1842;
+  --olivine: #a56ee0;
+  --military: #cba2f7;
+  --chamoisee: #d19de6;
+  --umber: #f1d6f7;
+  --gray: #9a84aa;
+
+  color: var(--umber);
+  background-color: var(--tea-green);
+}
+
+/* Orange Dark */
+.theme-orange_dark {
+  --parchment: #2a1a0f;
+  --tea-green: #3d2a1b;
+  --olivine: #e68346;
+  --military: #f29a68;
+  --chamoisee: #d08065;
+  --umber: #f4d9d0;
+  --gray: #a4877c;
+
+  color: var(--umber);
+  background-color: var(--tea-green);
+}
+
+/* Monochrome Dark */
+.theme-monochrome_dark {
+  --parchment: #1a1a1a;   /* paper/plot */
+  --tea-green: #2b2b2b;   /* background */
+  --olivine: #7a7a7a;     /* line */
+  --military: #a3a3a3;    /* highlight */
+  --chamoisee: #c2c2c2;   /* point */
+  --umber: #f0f0f0;       /* text */
+  --gray: #dcdcdc;        /* intersection */
+
+  color: var(--umber);
+  background-color: var(--tea-green);
+}
+
+
 
 /* Typography */
 a {

@@ -32,21 +32,36 @@ const GraphPlot: React.FC = () => {
   const [numPoints, setNumPoints] = useState(5000);
   const [rangeXMin, setRangeXMin] = useState(-5);
   const [rangeXMax, setRangeXMax] = useState(5);
-
+  const [mode, setMode] = useState("light");
   // ✅ loading state
   const [loading, setLoading] = useState(false);
 
   //Theme
-  const [activeTheme, setActiveTheme] = useState<ThemeName>("default");
+  const [activeTheme, setActiveTheme] = useState<ThemeName>("forest");
   // On mount
   useEffect(() => {
-    const saved = (localStorage.getItem("theme") as ThemeName) || "default";
-    setActiveTheme(saved);
-
-    document.body.classList.remove("theme-ocean", "theme-sunset");
-    if (saved !== "default") {
-      document.body.classList.add(`theme-${saved}`);
+    const saved = (localStorage.getItem("theme") as ThemeName) || "forest";
+    let currTheme = saved
+    if (mode === "dark") {
+      currTheme = (saved + "_dark") as ThemeName
     }
+    setActiveTheme(currTheme);
+
+    document.body.classList.remove(
+      "theme-ocean", 
+      "theme-love", 
+      "theme-orange", 
+      "theme-liliac", 
+      "theme-monochrome",
+      "theme-ocean_dark", 
+      "theme-love_dark", 
+      "theme-orange_dark", 
+      "theme-liliac_dark", 
+      "theme-monochrome_dark",
+      "theme-forest_dark",
+      "theme-forest"
+    );
+    document.body.classList.add(`theme-${currTheme}`);
   }, []);
 
 
@@ -183,6 +198,8 @@ const GraphPlot: React.FC = () => {
         isLoading={loading}
         activeTheme={activeTheme}
         setActiveTheme={setActiveTheme}
+        mode={mode}
+        setMode={setMode}
       />
     </div>
   );
