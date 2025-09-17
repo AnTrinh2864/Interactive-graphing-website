@@ -10,7 +10,7 @@ export const usePlotly = (props: UsePlotlyProps) => {
   const plotRef = useRef<HTMLDivElement>(null);
 
   // Initialize empty plot
-  usePlotInit(plotRef, props.theme);
+  usePlotInit(plotRef, props.theme, props.x_min, props.x_max);
 
   // Update plot with data + theme
   usePlotUpdate(
@@ -24,7 +24,9 @@ export const usePlotly = (props: UsePlotlyProps) => {
     props.hoveredPoint,
     props.selectedPoints,
     props.intersectionPoints,
-    props.theme // ✅ pass theme properly as a prop
+    props.theme, // ✅ pass theme properly as a prop
+    props.x_min, 
+    props.x_max
   );
 
   // Interaction hooks

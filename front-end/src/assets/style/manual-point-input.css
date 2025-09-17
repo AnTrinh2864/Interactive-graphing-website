@@ -1,12 +1,13 @@
 #manual-point-container {
   margin-top: 10px;
   padding-bottom: 10px;
+  margin-right: 10px;
 }
 
 #input-x,
 #input-y {
   margin-right: 5px;
-  width: 60px;
+  width: 100px;
   padding: 5px 8px;
   border: 2px solid var(--umber);
   border-radius: 4px;
@@ -23,6 +24,7 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.1s;
+  padding-top: 3px;
 }
 
 #add-point-btn:hover {

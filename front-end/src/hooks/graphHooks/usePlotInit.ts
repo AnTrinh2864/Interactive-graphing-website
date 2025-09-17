@@ -5,12 +5,14 @@ import type { ThemeName } from "../../themeSetting/themeColors";
 
 export const usePlotInit = (
   plotRef: React.RefObject<HTMLDivElement | null>,
-  theme: ThemeName
+  theme: ThemeName,
+  x_min:number,
+  x_max:number,
 ) => {
   useEffect(() => {
     if (plotRef.current) {
-      const initialLayout = buildLayout(theme);
+      const initialLayout = buildLayout(theme, x_min, x_max);
       Plotly.newPlot(plotRef.current, [], initialLayout, config);
     }
-  }, [theme]); // <- re-run when theme changes
+  }, [theme, x_min, x_max]); // <- re-run when theme changes
 };

@@ -21,7 +21,9 @@ export const usePlotUpdate = (
   hoveredPoint: Point | null,
   selectedPoints: Point[],
   intersectionPoints: IntersectionPoint[],
-  theme: ThemeName // <- new
+  theme: ThemeName, // <- new,
+  x_min:number,
+  x_max:number
 ) => {
   useEffect(() => {
     if (!plotRef.current) return;
@@ -45,7 +47,7 @@ export const usePlotUpdate = (
     const intersectionTrace = buildIntersectionTrace(intersectionPoints, theme);
 
     // layout themed
-    const nextLayout: any = buildLayout(theme);
+    const nextLayout: any = buildLayout(theme, x_min, x_max);
 
     // preserve zoom/pan ranges
     const full = el?._fullLayout;
@@ -71,5 +73,7 @@ export const usePlotUpdate = (
     selectedPoints,
     intersectionPoints,
     theme, // <- re-run when theme changes
+    x_max,
+    x_min
   ]);
 };

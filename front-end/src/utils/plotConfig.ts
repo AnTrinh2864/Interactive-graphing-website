@@ -1,6 +1,6 @@
 import { themeColors, type ThemeName } from "../themeSetting/themeColors"
 
-export function buildLayout(theme: ThemeName = "default") {
+export function buildLayout(theme: ThemeName = "default", x_min: number, x_max:number) {
   const colors = themeColors[theme] ?? themeColors.default;
 
   return {
@@ -11,6 +11,7 @@ export function buildLayout(theme: ThemeName = "default") {
       gridcolor: colors.grid,
       zerolinecolor: colors.axis,
       tickfont: { color: colors.axis },
+      range: [x_min, x_max]
     },
     yaxis: {
       zeroline: true,
@@ -18,6 +19,7 @@ export function buildLayout(theme: ThemeName = "default") {
       gridcolor: colors.grid,
       zerolinecolor: colors.axis,
       tickfont: { color: colors.axis },
+      range: [x_min, x_max]
     },
     hovermode: "closest" as const,
     clickmode: "event+select" as const,

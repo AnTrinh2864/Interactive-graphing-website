@@ -22,4 +22,6 @@ export interface UsePlotlyProps {
   allowCircle: boolean;
   intersectionPoints: IntersectionPoint[];
   theme: ThemeName;
+  x_min: number,
+  x_max: number
 }

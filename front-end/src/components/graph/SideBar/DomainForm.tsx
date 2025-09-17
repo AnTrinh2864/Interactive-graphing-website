@@ -22,6 +22,7 @@ const DomainForm: React.FC<DomainFormProps> = ({
   setNumPoints,
   handleFindIntersections,
   handleClearIntersections,
+  isLoading,
 }) => {
   return (
     <div id="domain-form-container">
@@ -58,12 +59,13 @@ const DomainForm: React.FC<DomainFormProps> = ({
       </form>
 
       <div id="button-group">
-        <Button
+         <Button
           id="find-btn"
           size="lg"
           onClick={handleFindIntersections}
+          disabled={isLoading} // prevent clicks while loading
         >
-          Find Intersections
+          {isLoading ? "Loading..." : "Find Intersections"}
         </Button>
 
         <Button

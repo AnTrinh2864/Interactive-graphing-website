@@ -7,6 +7,7 @@ import { fetchIntersections, plotEquationAPI } from "../../apis/backend";
 import { usePlotly } from "../../hooks/graphHooks/usePlotly";
 import type { Point, Equation, IntersectionPoint } from "../../type";
 import type { ThemeName } from "@/themeSetting/themeColors";
+import ManualRangeInput from "./ManualRangeInput";
 
 const GraphPlot: React.FC = () => {
   const [points, setPoints] = useState<Point[]>([]); 
@@ -29,6 +30,8 @@ const GraphPlot: React.FC = () => {
   const [xMin, setXMin] = useState(-10);
   const [xMax, setXMax] = useState(10);
   const [numPoints, setNumPoints] = useState(5000);
+  const [rangeXMin, setRangeXMin] = useState(-5);
+  const [rangeXMax, setRangeXMax] = useState(5);
 
   // ✅ loading state
   const [loading, setLoading] = useState(false);
@@ -90,6 +93,8 @@ const GraphPlot: React.FC = () => {
     allowCircle,
     intersectionPoints,
     theme: activeTheme,
+    x_min:rangeXMin,
+    x_max:rangeXMax
   });
 
   const plotEquation = async () => {
@@ -118,6 +123,10 @@ const GraphPlot: React.FC = () => {
   const addPoint = (x: number, y: number) =>
     setPoints((prev) => [...prev, { x, y }]);
 
+  const setRange = (x:number, y:number) => {
+    setRangeXMax(y)
+    setRangeXMin(x)
+  }
   return (
     <div id="graph-root">
       {/* Left: Plot */}
@@ -127,9 +136,10 @@ const GraphPlot: React.FC = () => {
           setEquation={setEquation}
           plotEquation={plotEquation}
         />
-
-        <ManualPointInput addPoint={addPoint} />
-
+        <div style={{display: "flex", flexDirection:"row"}}>
+          <ManualPointInput addPoint={addPoint} />
+          <ManualRangeInput addPoint={setRange} />
+        </div>
         <div id="plot-container" ref={plotRef} />
 
         {/* Cursor tooltip */}
