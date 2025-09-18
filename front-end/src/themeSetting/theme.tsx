@@ -5,6 +5,49 @@ import { DockCard } from "./components/dock-card/DockCard";
 import { Card } from "./components/card/Card";
 import type { ThemeName } from "./themeColors";
 
+const ALL_THEMES = [
+  "theme-forest", "theme-forest_dark",
+  "theme-ocean", "theme-ocean_dark",
+  "theme-love", "theme-love_dark",
+  "theme-orange", "theme-orange_dark",
+  "theme-liliac", "theme-liliac_dark",
+  "theme-monochrome", "theme-monochrome_dark"
+];
+
+/**
+ * Apply a theme+mode combination to <body>, persist it, and return the actual applied theme.
+ */
+export function applyTheme(theme: ThemeName, mode: string): ThemeName {
+  // cleanup
+  document.body.classList.remove(...ALL_THEMES);
+
+  let currTheme = theme;
+  if (mode === "dark") {
+    if (!currTheme.includes("_dark")) {
+      currTheme = (currTheme + "_dark") as ThemeName;
+    }
+  } else {
+    if (currTheme.includes("_dark")) {
+      currTheme = currTheme.split("_")[0] as ThemeName;
+    }
+  }
+
+  document.body.classList.add(`theme-${currTheme}`);
+  localStorage.setItem("theme", currTheme);
+  localStorage.setItem("mode", mode);
+
+  return currTheme;
+}
+
+/**
+ * Restore theme+mode from localStorage (with defaults).
+ */
+export function loadTheme(): { theme: ThemeName; mode: string } {
+  const savedTheme = (localStorage.getItem("theme") as ThemeName) || "forest";
+  const savedMode = localStorage.getItem("mode") || "light";
+  return { theme: savedTheme, mode: savedMode };
+}
+
 const THEMES: { src: string; theme: ThemeName; }[] = [
   { src: "/assets/Tea.png", theme: "forest" },
   { src: "/assets/ocean.png", theme: "ocean" },
@@ -24,52 +67,18 @@ const Theme: React.FC<ThemeProps> = ({ activeTheme, setActiveTheme, mode, setMod
   const [open, setOpen] = useState(false);
 
   const setTheme = (theme: ThemeName) => {
-    document.body.classList.remove(
-      "theme-forest_dark",
-      "theme-forest",
-      "theme-ocean", 
-      "theme-love", 
-      "theme-orange", 
-      "theme-liliac", 
-      "theme-monochrome",
-      "theme-ocean_dark", 
-      "theme-love_dark", 
-      "theme-orange_dark", 
-      "theme-liliac_dark", 
-      "theme-monochrome_dark",
-      );
-    let currTheme = theme
-    if (mode === 'dark') {
-      if (!currTheme.includes('_dark')) {
-        currTheme = (theme + '_dark') as ThemeName
-      } 
-    } else {
-      if (currTheme.includes('_dark')) {
-        currTheme = currTheme.split('_')[0] as ThemeName
-      }
-    }
-    document.body.classList.add(`theme-${currTheme}`);
-    localStorage.setItem("theme", currTheme);
-    setActiveTheme(currTheme??(mode === 'dark'? "forest_dark":"forest"));
+    const applied = applyTheme(theme, mode);
+    setActiveTheme(applied);
   };
 
   const setCurrentMode = () => {
-    if (mode === 'dark') {
-      setMode('light')
-    } else {
-      setMode('dark')
-    }
-  }
-  
-  useEffect(()=> {
-    setTheme(activeTheme)
-  }, [mode, setMode, setActiveTheme])
-  
-  useEffect(() => {
-    const saved = (localStorage.getItem("theme") as ThemeName) ||
-       (mode==='dark'? "forest_dark":"forest");
-    setTheme(saved);
-  }, []);
+    const newMode = mode === "dark" ? "light" : "dark";
+    setMode(newMode);
+    const applied = applyTheme(activeTheme, newMode);
+    setActiveTheme(applied);
+  };
+
+
   
   return (
     <>

@@ -5,7 +5,13 @@ html, body {
   height: 100%;
   overflow: hidden; /* disable scrollbars entirely */
 }
-
+#graph-container {
+  display: flex;
+  flex-direction: column;
+}
+#tab-bar {
+ 
+}
 #graph-root {
   display: flex;
   position: fixed; /* lock to viewport */

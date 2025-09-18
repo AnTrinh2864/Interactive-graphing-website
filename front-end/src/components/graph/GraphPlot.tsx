@@ -8,6 +8,7 @@ import { usePlotly } from "../../hooks/graphHooks/usePlotly";
 import type { Point, Equation, IntersectionPoint } from "../../type";
 import type { ThemeName } from "@/themeSetting/themeColors";
 import ManualRangeInput from "./ManualRangeInput";
+import { applyTheme, loadTheme } from "../../themeSetting/theme";
 
 const GraphPlot: React.FC = () => {
   const [points, setPoints] = useState<Point[]>([]); 
@@ -39,31 +40,12 @@ const GraphPlot: React.FC = () => {
   //Theme
   const [activeTheme, setActiveTheme] = useState<ThemeName>("forest");
   // On mount
-  useEffect(() => {
-    const saved = (localStorage.getItem("theme") as ThemeName) || "forest";
-    let currTheme = saved
-    if (mode === "dark") {
-      currTheme = (saved + "_dark") as ThemeName
-    }
-    setActiveTheme(currTheme);
-
-    document.body.classList.remove(
-      "theme-ocean", 
-      "theme-love", 
-      "theme-orange", 
-      "theme-liliac", 
-      "theme-monochrome",
-      "theme-ocean_dark", 
-      "theme-love_dark", 
-      "theme-orange_dark", 
-      "theme-liliac_dark", 
-      "theme-monochrome_dark",
-      "theme-forest_dark",
-      "theme-forest"
-    );
-    document.body.classList.add(`theme-${currTheme}`);
+   useEffect(() => {
+    const { theme, mode: savedMode } = loadTheme();
+    setMode(savedMode);
+    const applied = applyTheme(theme, savedMode);
+    setActiveTheme(applied);
   }, []);
-
 
   const handleFindIntersections = async () => {
     setLoading(true); // show overlay

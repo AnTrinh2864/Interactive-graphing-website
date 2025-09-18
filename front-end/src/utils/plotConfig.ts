@@ -27,6 +27,7 @@ export function buildLayout(theme: ThemeName = "forest", x_min: number, x_max:nu
     showlegend: false,
     paper_bgcolor: colors.paper,
     plot_bgcolor: colors.plot,
+    autosize: true,
   };
 };
 

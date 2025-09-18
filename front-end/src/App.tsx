@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GraphContainer from "./components/graph/GraphContainer";
 import SmileApp from "./components/base/intro/smileFace";
+import GraphPlot from "./components/graph/GraphPlot";
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -21,7 +22,8 @@ function App() {
         />
       ) : (
         <>
-          <GraphContainer />
+          {/* there are graph container with tabs but need to work on it */}
+          <GraphPlot/>
         </>
       )}
     </div>
